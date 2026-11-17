@@ -3,13 +3,13 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>VirtuO – virtuális tájfutó pályák iPhone-ra és Apple Watch-ra</title>
-<meta name="description" content="Fuss le valódi tájfutó pályákat akkor is, ha a bóják már nincsenek kint. A VirtuO az Apple Watch-on és az iPhone-on jelez, amikor elérsz egy ellenőrzőpontot.">
+<title>VirtuO – virtuális tájfutó pályák iPhone-ra, Apple Watch-ra és Androidra</title>
+<meta name="description" content="Fuss le valódi tájfutó pályákat akkor is, ha a bóják már nincsenek kint. A VirtuO az Apple Watch-on, az iPhone-on és Android telefonon jelez, amikor elérsz egy ellenőrzőpontot. Pályák importálása fájlból vagy Livelox-ról.">
 <link rel="icon" href="assets/icon.png">
 <link rel="apple-touch-icon" href="assets/icon.png">
 <meta property="og:title" content="VirtuO">
-<meta property="og:description" content="Virtuális ellenőrzőpontok tájfutáshoz – iPhone-ra és Apple Watch-ra.">
-<meta property="og:image" content="assets/logo.png">
+<meta property="og:description" content="Virtuális ellenőrzőpontok tájfutáshoz – iPhone-ra, Apple Watch-ra és Androidra. Livelox-import.">
+<meta property="og:image" content="https://virtuo.run/assets/logo-light.png">
 <style>
   :root {
     --green: #17522F;
@@ -20,6 +20,7 @@
     --soft: #F3F7F4;
     --line: #DDE7E0;
     --card: #FFFFFF;
+    --link: #17522F;
   }
   @media (prefers-color-scheme: dark) {
     :root {
@@ -29,8 +30,8 @@
       --soft: #16211A;
       --line: #26352B;
       --card: #18241C;
+      --link: #6FD28F;
     }
-    .logo-wrap { background: #FFFFFF; }
   }
   * { box-sizing: border-box; }
   html { scroll-behavior: smooth; }
@@ -42,25 +43,29 @@
     line-height: 1.6;
     -webkit-font-smoothing: antialiased;
   }
-  a { color: var(--green); }
+  a { color: var(--link); }
+  :focus-visible { outline: 3px solid var(--orange); outline-offset: 2px; }
   .wrap { max-width: 1040px; margin: 0 auto; padding: 0 20px; }
 
   /* fejléc */
   header { border-bottom: 1px solid var(--line); }
-  .nav { display: flex; align-items: center; justify-content: space-between; height: 64px; }
+  .nav { display: flex; align-items: center; justify-content: space-between; min-height: 64px; gap: 0 16px; flex-wrap: wrap; }
   .nav .brand { display: flex; align-items: center; gap: 10px; font-weight: 700; font-size: 20px; color: var(--ink); text-decoration: none; }
   .nav .brand img { width: 32px; height: 32px; border-radius: 8px; }
-  .nav .links { display: flex; gap: 18px; align-items: center; }
-  .nav .links a { color: var(--muted); text-decoration: none; font-size: 15px; }
+  .nav .links { display: flex; gap: 4px 8px; align-items: center; margin-left: auto; }
+  .nav .links a { color: var(--muted); text-decoration: none; font-size: 15px; display: inline-flex; align-items: center; min-height: 44px; padding: 0 8px; }
+  .nav .links a.cta { color: #000; background: var(--orange); border-radius: 999px; padding: 0 16px; font-weight: 600; }
+  .nav .links a.cta:hover { color: #000; filter: brightness(1.08); }
   .nav .links a:hover { color: var(--ink); }
-  .lang { border: 1px solid var(--line); background: var(--card); color: var(--ink); border-radius: 999px; padding: 4px 12px; font-size: 14px; cursor: pointer; }
+  .lang { border: 1px solid var(--line); background: var(--card); color: var(--ink); border-radius: 999px; padding: 0 16px; min-height: 44px; min-width: 44px; font-size: 14px; cursor: pointer; }
 
   /* nyitó rész */
   .hero { padding: 64px 0 56px; text-align: center; }
-  .logo-wrap { display: inline-block; border-radius: 20px; padding: 6px 10px; }
-  .hero img.logo { width: min(620px, 100%); height: auto; display: block; }
+  .logo-wrap { width: min(560px, 100%); margin: 0 auto; }
+  .hero img.logo { width: 100%; height: auto; display: block; }
   .hero h1 { font-size: clamp(28px, 4.4vw, 44px); line-height: 1.15; margin: 28px auto 14px; max-width: 760px; letter-spacing: -0.02em; }
   .hero p.lead { font-size: clamp(17px, 2.2vw, 20px); color: var(--muted); max-width: 640px; margin: 0 auto 28px; }
+  .badges { display: flex; flex-wrap: wrap; gap: 10px; justify-content: center; }
   .badge { display: inline-flex; align-items: center; gap: 8px; background: var(--soft); border: 1px solid var(--line); border-radius: 999px; padding: 8px 16px; font-size: 15px; color: var(--muted); }
   .badge .dot { width: 8px; height: 8px; border-radius: 50%; background: var(--orange); }
 
@@ -72,7 +77,7 @@
 
   .steps { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
   .step { background: var(--card); border: 1px solid var(--line); border-radius: 16px; padding: 22px; }
-  .step .num { width: 34px; height: 34px; border-radius: 50%; border: 3px solid var(--orange); color: var(--orange); font-weight: 700; display: grid; place-items: center; margin-bottom: 12px; }
+  .step .num { width: 34px; height: 34px; border-radius: 50%; border: 3px solid var(--orange); color: var(--orange); font-weight: 700; font-size: 20px; display: grid; place-items: center; margin-bottom: 12px; }
   .step h3 { margin: 0 0 6px; font-size: 18px; }
   .step p { margin: 0; color: var(--muted); font-size: 15.5px; }
 
@@ -84,6 +89,27 @@
 
   .note { background: var(--card); border-left: 4px solid var(--orange); border-radius: 0; padding: 14px 18px; color: var(--muted); font-size: 15.5px; margin-top: 28px; }
 
+  .lead .lx { color: var(--orange); text-decoration: none; }
+  .lead .lx:hover, .lead .lx:focus-visible { text-decoration: underline; }
+  a.fn { color: var(--orange); text-decoration: none; font-weight: 700; padding: 0 2px; }
+  .footnote { font-size: 13.5px; color: var(--muted); margin: 0 0 10px; }
+  .gallery { display: flex; gap: 18px; overflow-x: auto; scroll-snap-type: x mandatory; padding: 4px 4px 14px; -webkit-overflow-scrolling: touch; }
+  .shot { flex: none; margin: 0; scroll-snap-align: start; width: 220px; }
+  .shot img { display: block; width: 100%; height: auto; border-radius: 26px; border: 1px solid var(--line); background: #000; }
+  .shot.watch { width: 200px; align-self: center; }
+  .shot.watch img { border-radius: 44px; }
+  .shot figcaption { color: var(--muted); font-size: 14px; text-align: center; margin-top: 10px; }
+  @media (max-width: 760px) { .shot { width: 72vw; max-width: 260px; } .shot.watch { width: 60vw; } }
+  .livelox { background: var(--green); color: #fff; }
+  .livelox h2, .livelox h3 { color: #fff; }
+  .livelox .sub { color: rgba(255,255,255,.85); }
+  .livelox .kicker { display: inline-block; background: var(--orange); color: #000; font-weight: 700; font-size: 13px; letter-spacing: .04em; text-transform: uppercase; border-radius: 999px; padding: 4px 12px; margin-bottom: 14px; }
+  .livelox .step { background: rgba(255,255,255,.08); border-color: rgba(255,255,255,.18); }
+  .livelox .step p { color: rgba(255,255,255,.85); }
+  .livelox .step .num { border-color: var(--orange); color: #fff; }
+  .livelox .fine { color: rgba(255,255,255,.7); font-size: 14px; margin: 22px 0 0; }
+  @media (prefers-color-scheme: dark) { .livelox { background: #123F24; } }
+
   .privacy ul { padding-left: 20px; margin: 0; }
   .privacy li { margin: 6px 0; color: var(--muted); }
   .privacy li strong { color: var(--ink); }
@@ -93,8 +119,11 @@
 
   @media (max-width: 760px) {
     .steps, .features { grid-template-columns: 1fr; }
-    .nav .links a { display: none; }
-    .hero { padding: 40px 0 36px; }
+    .nav { padding-top: 6px; padding-bottom: 6px; }
+    .nav .links { order: 3; width: 100%; margin-left: 0; justify-content: space-between; }
+    .nav .links a.hide-m { display: none; }
+    .nav .links a { padding: 0 6px; }
+    .hero { padding: 40px 20px 36px; }
     section { padding: 44px 0; }
   }
 
@@ -108,29 +137,40 @@
   <div class="wrap nav">
     <a class="brand" href="#top"><img src="assets/icon.png" alt="">VirtuO</a>
     <div class="links">
-      <a href="#how"><span class="hu">Hogyan működik?</span><span class="en">How it works</span></a>
-      <a href="#features"><span class="hu">Funkciók</span><span class="en">Features</span></a>
+      <a class="hide-m" href="#how"><span class="hu">Hogyan működik?</span><span class="en">How it works</span></a>
+      <a class="hide-m" href="#features"><span class="hu">Funkciók</span><span class="en">Features</span></a>
+      <a href="#livelox">Livelox</a>
       <a href="#privacy"><span class="hu">Adatvédelem</span><span class="en">Privacy</span></a>
-      <button class="lang" id="langBtn" type="button" aria-label="Nyelv / Language">English</button>
+      <a class="cta" href="#get"><span class="hu">Letöltés</span><span class="en">Get the app</span></a>
     </div>
+    <button class="lang" id="langBtn" type="button" aria-label="Nyelv / Language">English</button>
   </div>
 </header>
 
 <main id="top">
   <div class="hero wrap">
-    <div class="logo-wrap"><img class="logo" src="assets/logo.png" alt="VirtuO – for iPhone and Apple Watch"></div>
+    <div class="logo-wrap"><picture>
+      <source media="(prefers-color-scheme: dark)" srcset="assets/logo-dark.png">
+      <img class="logo" src="assets/logo-light.png" alt="VirtuO" width="1759" height="486">
+    </picture></div>
     <h1>
       <span class="hu">Tájfutó pálya, bóják nélkül.</span>
       <span class="en">Orienteering courses, without the flags.</span>
     </h1>
     <p class="lead">
-      <span class="hu">Fuss le valódi tájfutó pályákat akkor is, amikor a bóják már nincsenek kint. A VirtuO az Apple Watch-on vagy az iPhone-on jelez, amikor elérsz egy ellenőrzőpontot – és méri a részidőidet.</span>
-      <span class="en">Run real orienteering courses even after the controls have been collected. VirtuO tells you on your Apple Watch or iPhone when you reach a control – and records your split times.</span>
+      <span class="hu">Töltsd le a pályát a <a class="lx" href="https://www.livelox.com" target="_blank" rel="noopener"><strong>Livelox</strong></a>-ról, indítsd el a VirtuO appban, és jelzést kapsz a telefonodon vagy az órádon, amikor elérsz egy ellenőrzőpontot. Működik iPhone-on, Apple Watch-on és Androidon is, bármilyen okosórával<a class="fn" href="#fn1" aria-describedby="fn1">*</a>.</span>
+      <span class="en">Download the course from <a class="lx" href="https://www.livelox.com" target="_blank" rel="noopener"><strong>Livelox</strong></a>, start it in the VirtuO app, and your phone or watch tells you when you reach a control. Works on iPhone, Apple Watch and Android, with any smartwatch<a class="fn" href="#fn1" aria-describedby="fn1">*</a>.</span>
     </p>
-    <span class="badge"><span class="dot"></span>
-      <span class="hu">Hamarosan az App Store-ban</span>
-      <span class="en">Coming soon to the App Store</span>
-    </span>
+    <div class="badges" id="get">
+      <span class="badge"><span class="dot"></span>
+        <span class="hu">iPhone és Apple Watch: hamarosan az App Store-ban</span>
+        <span class="en">iPhone and Apple Watch: coming soon to the App Store</span>
+      </span>
+      <span class="badge"><span class="dot"></span>
+        <span class="hu">Android: hamarosan Google Play-en</span>
+        <span class="en">Android: coming soon to Google Play</span>
+      </span>
+    </div>
   </div>
 
   <section id="how" class="alt">
@@ -145,8 +185,8 @@
           <div class="num">1</div>
           <h3><span class="hu">Töltsd be a pályát</span><span class="en">Load a course</span></h3>
           <p>
-            <span class="hu">Importáld a pályát IOF XML fájlból (Purple Pen, OCAD), vagy írd be a pontok koordinátáit kézzel.</span>
-            <span class="en">Import a course from an IOF XML file (Purple Pen, OCAD), or type in the control coordinates.</span>
+            <span class="hu">Töltsd le a pályát a Livelox-ról, importáld IOF XML fájlból (Purple Pen, OCAD), vagy írd be a pontok koordinátáit kézzel.</span>
+            <span class="en">Download the course from Livelox, import an IOF XML file (Purple Pen, OCAD), or type in the control coordinates.</span>
           </p>
         </div>
         <div class="step">
@@ -177,13 +217,13 @@
         <span class="en">Made for training, by an orienteer.</span>
       </p>
       <div class="features">
-        <div class="feature"><div class="ic">⌚</div><div>
-          <h3><span class="hu">Apple Watch</span><span class="en">Apple Watch</span></h3>
-          <p><span class="hu">Nagy, jól olvasható számok futás közben. Erős rezgés és csipogás pontfogáskor.</span><span class="en">Big, easy-to-read numbers while running. Strong haptics and a beep at every control.</span></p>
-        </div></div>
         <div class="feature"><div class="ic">📱</div><div>
-          <h3><span class="hu">iPhone is elég</span><span class="en">iPhone works too</span></h3>
-          <p><span class="hu">Óra nélkül is használható: a telefon zsebben is jelez, és bemondja a pontot.</span><span class="en">No watch? Your phone works in your pocket and announces each control.</span></p>
+          <h3><span class="hu">Telefon – okosórával vagy anélkül</span><span class="en">Your phone – with or without a smartwatch</span></h3>
+          <p><span class="hu">iPhone-on és Android telefonon is működik: a telefon a zsebedben is jelez, bemondja a pontot, és értesítést küld, így az okosórád is rezeg pontfogáskor<a class="fn" href="#fn1" aria-describedby="fn1">*</a>.</span><span class="en">Works on iPhone and Android: your phone tracks you from your pocket, announces each control and sends a notification, so your smartwatch buzzes at every control<a class="fn" href="#fn1" aria-describedby="fn1">*</a>.</span></p>
+        </div></div>
+        <div class="feature"><div class="ic">⌚</div><div>
+          <h3><span class="hu">Saját Apple Watch-app</span><span class="en">Dedicated Apple Watch app</span></h3>
+          <p><span class="hu">Nagy, jól olvasható számok futás közben, erős rezgés és csipogás pontfogáskor. A pálya átküldése után telefon nélkül is futhatsz vele.</span><span class="en">Big, easy-to-read numbers while running, strong haptics and a beep at every control. Once the course is on the watch, you can leave your phone at home.</span></p>
         </div></div>
         <div class="feature"><div class="ic">🎯</div><div>
           <h3><span class="hu">Állítható körzet</span><span class="en">Adjustable radius</span></h3>
@@ -198,13 +238,63 @@
           <p><span class="hu">Minden futás eltárolódik a részidőkkel együtt. Szünetet is tarthatsz.</span><span class="en">Every run is saved with its splits. You can pause and resume.</span></p>
         </div></div>
         <div class="feature"><div class="ic">❤️</div><div>
-          <h3><span class="hu">Egészség app – ha kéred</span><span class="en">Apple Health – if you want</span></h3>
-          <p><span class="hu">Bekapcsolva a futás edzésként mentődik pulzussal, távval és útvonallal. Alapból kikapcsolva.</span><span class="en">If enabled, the run is saved as a workout with heart rate, distance and route. Off by default.</span></p>
+          <h3><span class="hu">Edzés rögzítése Apple Watch-on – ha kéred</span><span class="en">Workout recording on Apple Watch – if you want</span></h3>
+          <p><span class="hu">Apple Watch-on bekapcsolva a futás edzésként mentődik pulzussal, távval és útvonallal. Alapból kikapcsolva.</span><span class="en">On Apple Watch, if enabled, the run is saved as a workout with heart rate, distance and route. Off by default.</span></p>
         </div></div>
       </div>
-      <div class="note">
-        <span class="hu">Hamarosan: pályák betöltése közvetlenül a <strong>Livelox</strong>-ról.</span>
-        <span class="en">Coming soon: load courses directly from <strong>Livelox</strong>.</span>
+    </div>
+  </section>
+
+  <section id="livelox" class="livelox">
+    <div class="wrap">
+      <span class="kicker"><span class="hu">Livelox-import</span><span class="en">Livelox import</span></span>
+      <h2><span class="hu">Fusd újra a versenyeidet – egyenesen a Livelox-ról</span><span class="en">Re-run your races – straight from Livelox</span></h2>
+      <p class="sub">
+        <span class="hu">Nem kell fájlokat keresgélned. Jelentkezz be a Livelox-fiókoddal, keresd meg a versenyt, válaszd ki a kategóriádat, és a pálya már az órádon is van.</span>
+        <span class="en">No files to hunt for. Sign in with your Livelox account, find the event, pick your class, and the course is on your watch.</span>
+      </p>
+      <div class="steps">
+        <div class="step">
+          <div class="num">1</div>
+          <h3><span class="hu">Bejelentkezés</span><span class="en">Sign in</span></h3>
+          <p><span class="hu">A Livelox saját oldalán lépsz be. A jelszavadat a VirtuO soha nem látja.</span><span class="en">You sign in on Livelox's own page. VirtuO never sees your password.</span></p>
+        </div>
+        <div class="step">
+          <div class="num">2</div>
+          <h3><span class="hu">Verseny és kategória</span><span class="en">Event and class</span></h3>
+          <p><span class="hu">Keress rá a versenyre, és válaszd ki a kategóriát, amit futni szeretnél.</span><span class="en">Search for the event and choose the class you want to run.</span></p>
+        </div>
+        <div class="step">
+          <div class="num">3</div>
+          <h3><span class="hu">Indulhatsz</span><span class="en">Go</span></h3>
+          <p><span class="hu">A pálya letöltődik a pontokkal együtt. Fusd le újra, edzésként, a saját tempódban.</span><span class="en">The course downloads with all its controls. Run it again as training, at your own pace.</span></p>
+        </div>
+      </div>
+      <p class="fine"><span class="hu">Csak a nyilvános pályaadatokat töltjük le. A Livelox név a jogtulajdonosáé; a VirtuO független alkalmazás, nem a Livelox terméke.</span><span class="en">Only public course data is downloaded. Livelox is a trademark of its owner; VirtuO is an independent app, not a Livelox product.</span></p>
+    </div>
+  </section>
+
+  <section id="screens">
+    <div class="wrap">
+      <h2><span class="hu">Így néz ki</span><span class="en">What it looks like</span></h2>
+      <p class="sub"><span class="hu">Képek az iPhone-, az Apple Watch- és az Android-appból. Húzd oldalra a többihez.</span><span class="en">Screens from the iPhone, Apple Watch and Android apps. Swipe for more.</span></p>
+      <div class="gallery">
+        <figure class="shot"><img src="assets/screens/iphone-livelox.png" width="646" height="1400" loading="lazy" alt="Livelox-import: szűrők és eseménylista (iPhone)">
+          <figcaption><span class="hu">Livelox-import: szűrők és eseménylista</span><span class="en">Livelox import: filters and event list</span></figcaption></figure>
+        <figure class="shot"><img src="assets/screens/iphone-map.png" width="644" height="1400" loading="lazy" alt="Pálya a térképen (iPhone)">
+          <figcaption><span class="hu">Pálya a térképen (iPhone)</span><span class="en">Course on the map (iPhone)</span></figcaption></figure>
+        <figure class="shot"><img src="assets/screens/iphone-run.png" width="644" height="1400" loading="lazy" alt="Futás közben (iPhone)">
+          <figcaption><span class="hu">Futás közben (iPhone)</span><span class="en">While running (iPhone)</span></figcaption></figure>
+        <figure class="shot"><img src="assets/screens/iphone-courses.png" width="644" height="1400" loading="lazy" alt="Pályák listája (iPhone)">
+          <figcaption><span class="hu">Pályák listája (iPhone)</span><span class="en">Course list (iPhone)</span></figcaption></figure>
+        <figure class="shot watch"><img src="assets/screens/watch-run.png" width="422" height="398" loading="lazy" alt="Futás Apple Watch-on">
+          <figcaption><span class="hu">Futás Apple Watch-on</span><span class="en">Running on Apple Watch</span></figcaption></figure>
+        <figure class="shot"><img src="assets/screens/android-map.png" width="630" height="1400" loading="lazy" alt="Pálya a térképen (Android)">
+          <figcaption><span class="hu">Pálya a térképen (Android)</span><span class="en">Course on the map (Android)</span></figcaption></figure>
+        <figure class="shot"><img src="assets/screens/android-run.png" width="630" height="1400" loading="lazy" alt="Futás közben (Android)">
+          <figcaption><span class="hu">Futás közben (Android)</span><span class="en">While running (Android)</span></figcaption></figure>
+        <figure class="shot"><img src="assets/screens/android-arrow.png" width="630" height="1400" loading="lazy" alt="Iránymutatás a következő pontig">
+          <figcaption><span class="hu">Iránymutatás a következő pontig</span><span class="en">Direction to the next control</span></figcaption></figure>
       </div>
     </div>
   </section>
@@ -217,16 +307,16 @@
         <span class="en">In short: your data stays on your devices.</span>
       </p>
       <ul class="hu">
-        <li><strong>Nincs fiók, nincs szerver.</strong> A pályák és a futások csak az iPhone-odon és az órádon tárolódnak.</li>
+        <li><strong>Nincs fiók, nincs szerver.</strong> A pályák és a futások csak a telefonodon és az órádon tárolódnak.</li>
         <li><strong>Helyadatok:</strong> a GPS-t csak futás közben használjuk, a pontfogáshoz. A helyzetedet nem küldjük el sehova.</li>
-        <li><strong>Egészség app:</strong> csak akkor írunk bele, ha a beállításokban bekapcsolod. Más adatot nem olvasunk ki belőle.</li>
-        <li><strong>Livelox:</strong> ha majd bejelentkezel, csak a nyilvános pályaadatokat töltjük le. A jelszavadat nem látjuk.</li>
+        <li><strong>Apple Egészség app (csak Apple Watch):</strong> csak az óra-app ír bele, és csak akkor, ha a beállításokban bekapcsolod, hogy rögzítsen edzést. Az iPhone-app nem ír bele. Más adatot nem olvasunk ki belőle. Androidon nincs ilyen kapcsolat.</li>
+        <li><strong>Livelox:</strong> ha bejelentkezel, csak a nyilvános pályaadatokat töltjük le. A jelszavadat nem látjuk.</li>
         <li><strong>Nincs reklám és nincs követés.</strong></li>
       </ul>
       <ul class="en">
-        <li><strong>No account, no server.</strong> Courses and runs are stored only on your iPhone and Apple Watch.</li>
+        <li><strong>No account, no server.</strong> Courses and runs are stored only on your phone and watch.</li>
         <li><strong>Location:</strong> GPS is used only during a run, to detect controls. Your location is never sent anywhere.</li>
-        <li><strong>Apple Health:</strong> we only write to it if you turn this on in the settings. We read nothing else.</li>
+        <li><strong>Apple Health (Apple Watch only):</strong> only the watch app writes to it, and only if you turn on workout recording in the settings. The iPhone app does not write to it. We read nothing else. There is no such link on Android.</li>
         <li><strong>Livelox:</strong> when you sign in, we only download public course data. We never see your password.</li>
         <li><strong>No ads and no tracking.</strong></li>
       </ul>
@@ -235,11 +325,17 @@
 </main>
 
 <footer>
+  <div class="wrap">
+    <p class="footnote" id="fn1">*
+      <span class="hu">Androidon a VirtuO pontfogáskor értesítést küld a telefonra, így minden okosóra, amely megjeleníti a telefon értesítéseit, rezegve jelez. Külön óra-app nem kell hozzá. iPhone-on ugyanígy működik: bármilyen okosóra jelez, amely megkapja az iPhone értesítéseit, Apple Watch nem szükséges, de Apple Watch-on a VirtuO saját óra-appként is fut: a pálya átküldése után telefon nélkül is futhatsz vele.</span>
+      <span class="en">On Android, VirtuO sends a notification to your phone at every control, so any smartwatch that shows phone notifications will buzz. No separate watch app is needed. It works the same way on iPhone: any smartwatch that receives iPhone notifications will buzz – an Apple Watch is not required. On Apple Watch, VirtuO also runs as its own watch app: once the course is sent to the watch, you can run without your phone.</span>
+    </p>
+  </div>
   <div class="wrap row">
     <span>© 2026 VirtuO · virtuo.run</span>
     <span>
-      <span class="hu">Az iPhone és az Apple Watch az Apple Inc. védjegye.</span>
-      <span class="en">iPhone and Apple Watch are trademarks of Apple Inc.</span>
+      <span class="hu">Az iPhone és az Apple Watch az Apple Inc., az Android és a Google Play a Google LLC védjegye. A Livelox, az OCAD és a Purple Pen a jogtulajdonosaik védjegyei, illetve márkanevei. Az IOF XML a Nemzetközi Tájfutó Szövetség (IOF) adatformátuma. A VirtuO független alkalmazás, nem ezeknek a cégeknek a terméke.</span>
+      <span class="en">iPhone and Apple Watch are trademarks of Apple Inc.; Android and Google Play are trademarks of Google LLC. Livelox, OCAD and Purple Pen are trademarks or brand names of their respective owners. IOF XML is a data format of the International Orienteering Federation (IOF). VirtuO is an independent app and not a product of these companies.</span>
     </span>
   </div>
 </footer>
