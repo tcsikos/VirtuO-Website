@@ -1,14 +1,14 @@
 <!doctype html>
-<html lang="hu">
+<html lang="en">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>VirtuO – virtuális tájfutó pályák iPhone-ra, Apple Watch-ra és Androidra</title>
-<meta name="description" content="Fuss le valódi tájfutó pályákat akkor is, ha a bóják már nincsenek kint. A VirtuO az Apple Watch-on, az iPhone-on és Android telefonon jelez, amikor elérsz egy ellenőrzőpontot. Pályák importálása fájlból vagy Livelox-ról.">
+<title>VirtuO – virtual orienteering courses for iPhone, Apple Watch and Android</title>
+<meta name="description" content="Run real orienteering courses even after the controls have been collected. Download the course from Livelox, start it in VirtuO, and your phone or watch tells you when you reach a control. Works on iPhone, Apple Watch and Android.">
 <link rel="icon" href="assets/icon.png">
 <link rel="apple-touch-icon" href="assets/icon.png">
 <meta property="og:title" content="VirtuO">
-<meta property="og:description" content="Virtuális ellenőrzőpontok tájfutáshoz – iPhone-ra, Apple Watch-ra és Androidra. Livelox-import.">
+<meta property="og:description" content="Virtual controls for orienteering – iPhone, Apple Watch and Android. Livelox import.">
 <meta property="og:image" content="https://virtuo.run/assets/logo-light.png">
 <style>
   :root {
@@ -131,7 +131,7 @@
   [data-lang="en"] .hu, [data-lang="hu"] .en { display: none !important; }
 </style>
 </head>
-<body data-lang="hu">
+<body data-lang="en">
 
 <header>
   <div class="wrap nav">
@@ -143,7 +143,7 @@
       <a href="#privacy"><span class="hu">Adatvédelem</span><span class="en">Privacy</span></a>
       <a class="cta" href="#get"><span class="hu">Letöltés</span><span class="en">Get the app</span></a>
     </div>
-    <button class="lang" id="langBtn" type="button" aria-label="Nyelv / Language">English</button>
+    <button class="lang" id="langBtn" type="button" aria-label="Nyelv / Language">Magyar</button>
   </div>
 </header>
 
@@ -341,19 +341,19 @@
 </footer>
 
 <script>
-  // Nyelvváltás (magyar / angol). A választás megmarad a böngészőben.
+  // Nyelvváltás (angol / magyar). Alapból angol; csak a gombbal választott nyelv marad meg a böngészőben.
   (function () {
     var body = document.body, btn = document.getElementById('langBtn');
-    function set(lang) {
+    function set(lang, remember) {
       body.setAttribute('data-lang', lang);
       document.documentElement.lang = lang;
       btn.textContent = lang === 'hu' ? 'English' : 'Magyar';
-      try { localStorage.setItem('virtuo-lang', lang); } catch (e) {}
+      if (remember) { try { localStorage.setItem('virtuo-lang-choice', lang); } catch (e) {} }
     }
     var saved = null;
-    try { saved = localStorage.getItem('virtuo-lang'); } catch (e) {}
-    set(saved || ((navigator.language || 'hu').slice(0, 2) === 'hu' ? 'hu' : 'en'));
-    btn.addEventListener('click', function () { set(body.getAttribute('data-lang') === 'hu' ? 'en' : 'hu'); });
+    try { saved = localStorage.getItem('virtuo-lang-choice'); } catch (e) {}
+    set(saved === 'hu' ? 'hu' : 'en', false);
+    btn.addEventListener('click', function () { set(body.getAttribute('data-lang') === 'hu' ? 'en' : 'hu', true); });
   })();
 </script>
 </body>
