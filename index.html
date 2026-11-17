@@ -1,0 +1,264 @@
+<!doctype html>
+<html lang="hu">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>VirtuO – virtuális tájfutó pályák iPhone-ra és Apple Watch-ra</title>
+<meta name="description" content="Fuss le valódi tájfutó pályákat akkor is, ha a bóják már nincsenek kint. A VirtuO az Apple Watch-on és az iPhone-on jelez, amikor elérsz egy ellenőrzőpontot.">
+<link rel="icon" href="assets/icon.png">
+<link rel="apple-touch-icon" href="assets/icon.png">
+<meta property="og:title" content="VirtuO">
+<meta property="og:description" content="Virtuális ellenőrzőpontok tájfutáshoz – iPhone-ra és Apple Watch-ra.">
+<meta property="og:image" content="assets/logo.png">
+<style>
+  :root {
+    --green: #17522F;
+    --orange: #FF5A00;
+    --ink: #14211A;
+    --muted: #5B6B62;
+    --bg: #FFFFFF;
+    --soft: #F3F7F4;
+    --line: #DDE7E0;
+    --card: #FFFFFF;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --ink: #EAF2EC;
+      --muted: #A9B8AE;
+      --bg: #0F1712;
+      --soft: #16211A;
+      --line: #26352B;
+      --card: #18241C;
+    }
+    .logo-wrap { background: #FFFFFF; }
+  }
+  * { box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  body {
+    margin: 0;
+    font-family: -apple-system, BlinkMacSystemFont, "SF Pro Text", "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    color: var(--ink);
+    background: var(--bg);
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+  }
+  a { color: var(--green); }
+  .wrap { max-width: 1040px; margin: 0 auto; padding: 0 20px; }
+
+  /* fejléc */
+  header { border-bottom: 1px solid var(--line); }
+  .nav { display: flex; align-items: center; justify-content: space-between; height: 64px; }
+  .nav .brand { display: flex; align-items: center; gap: 10px; font-weight: 700; font-size: 20px; color: var(--ink); text-decoration: none; }
+  .nav .brand img { width: 32px; height: 32px; border-radius: 8px; }
+  .nav .links { display: flex; gap: 18px; align-items: center; }
+  .nav .links a { color: var(--muted); text-decoration: none; font-size: 15px; }
+  .nav .links a:hover { color: var(--ink); }
+  .lang { border: 1px solid var(--line); background: var(--card); color: var(--ink); border-radius: 999px; padding: 4px 12px; font-size: 14px; cursor: pointer; }
+
+  /* nyitó rész */
+  .hero { padding: 64px 0 56px; text-align: center; }
+  .logo-wrap { display: inline-block; border-radius: 20px; padding: 6px 10px; }
+  .hero img.logo { width: min(620px, 100%); height: auto; display: block; }
+  .hero h1 { font-size: clamp(28px, 4.4vw, 44px); line-height: 1.15; margin: 28px auto 14px; max-width: 760px; letter-spacing: -0.02em; }
+  .hero p.lead { font-size: clamp(17px, 2.2vw, 20px); color: var(--muted); max-width: 640px; margin: 0 auto 28px; }
+  .badge { display: inline-flex; align-items: center; gap: 8px; background: var(--soft); border: 1px solid var(--line); border-radius: 999px; padding: 8px 16px; font-size: 15px; color: var(--muted); }
+  .badge .dot { width: 8px; height: 8px; border-radius: 50%; background: var(--orange); }
+
+  /* szakaszok */
+  section { padding: 56px 0; }
+  section.alt { background: var(--soft); }
+  h2 { font-size: clamp(24px, 3.2vw, 32px); margin: 0 0 8px; letter-spacing: -0.01em; }
+  .sub { color: var(--muted); margin: 0 0 32px; max-width: 680px; }
+
+  .steps { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
+  .step { background: var(--card); border: 1px solid var(--line); border-radius: 16px; padding: 22px; }
+  .step .num { width: 34px; height: 34px; border-radius: 50%; border: 3px solid var(--orange); color: var(--orange); font-weight: 700; display: grid; place-items: center; margin-bottom: 12px; }
+  .step h3 { margin: 0 0 6px; font-size: 18px; }
+  .step p { margin: 0; color: var(--muted); font-size: 15.5px; }
+
+  .features { display: grid; grid-template-columns: repeat(2, 1fr); gap: 16px 28px; }
+  .feature { display: flex; gap: 14px; align-items: flex-start; }
+  .feature .ic { flex: none; width: 40px; height: 40px; border-radius: 10px; background: var(--green); color: #fff; display: grid; place-items: center; font-size: 20px; }
+  .feature h3 { margin: 2px 0 2px; font-size: 17px; }
+  .feature p { margin: 0; color: var(--muted); font-size: 15.5px; }
+
+  .note { background: var(--card); border-left: 4px solid var(--orange); border-radius: 0; padding: 14px 18px; color: var(--muted); font-size: 15.5px; margin-top: 28px; }
+
+  .privacy ul { padding-left: 20px; margin: 0; }
+  .privacy li { margin: 6px 0; color: var(--muted); }
+  .privacy li strong { color: var(--ink); }
+
+  footer { border-top: 1px solid var(--line); padding: 28px 0 40px; color: var(--muted); font-size: 14px; }
+  footer .row { display: flex; justify-content: space-between; gap: 16px; flex-wrap: wrap; }
+
+  @media (max-width: 760px) {
+    .steps, .features { grid-template-columns: 1fr; }
+    .nav .links a { display: none; }
+    .hero { padding: 40px 0 36px; }
+    section { padding: 44px 0; }
+  }
+
+  /* nyelvváltás: csak a kiválasztott nyelv szövege látszik */
+  [data-lang="en"] .hu, [data-lang="hu"] .en { display: none !important; }
+</style>
+</head>
+<body data-lang="hu">
+
+<header>
+  <div class="wrap nav">
+    <a class="brand" href="#top"><img src="assets/icon.png" alt="">VirtuO</a>
+    <div class="links">
+      <a href="#how"><span class="hu">Hogyan működik?</span><span class="en">How it works</span></a>
+      <a href="#features"><span class="hu">Funkciók</span><span class="en">Features</span></a>
+      <a href="#privacy"><span class="hu">Adatvédelem</span><span class="en">Privacy</span></a>
+      <button class="lang" id="langBtn" type="button" aria-label="Nyelv / Language">English</button>
+    </div>
+  </div>
+</header>
+
+<main id="top">
+  <div class="hero wrap">
+    <div class="logo-wrap"><img class="logo" src="assets/logo.png" alt="VirtuO – for iPhone and Apple Watch"></div>
+    <h1>
+      <span class="hu">Tájfutó pálya, bóják nélkül.</span>
+      <span class="en">Orienteering courses, without the flags.</span>
+    </h1>
+    <p class="lead">
+      <span class="hu">Fuss le valódi tájfutó pályákat akkor is, amikor a bóják már nincsenek kint. A VirtuO az Apple Watch-on vagy az iPhone-on jelez, amikor elérsz egy ellenőrzőpontot – és méri a részidőidet.</span>
+      <span class="en">Run real orienteering courses even after the controls have been collected. VirtuO tells you on your Apple Watch or iPhone when you reach a control – and records your split times.</span>
+    </p>
+    <span class="badge"><span class="dot"></span>
+      <span class="hu">Hamarosan az App Store-ban</span>
+      <span class="en">Coming soon to the App Store</span>
+    </span>
+  </div>
+
+  <section id="how" class="alt">
+    <div class="wrap">
+      <h2><span class="hu">Hogyan működik?</span><span class="en">How it works</span></h2>
+      <p class="sub">
+        <span class="hu">Három lépés, és már futhatsz is.</span>
+        <span class="en">Three steps and you are ready to run.</span>
+      </p>
+      <div class="steps">
+        <div class="step">
+          <div class="num">1</div>
+          <h3><span class="hu">Töltsd be a pályát</span><span class="en">Load a course</span></h3>
+          <p>
+            <span class="hu">Importáld a pályát IOF XML fájlból (Purple Pen, OCAD), vagy írd be a pontok koordinátáit kézzel.</span>
+            <span class="en">Import a course from an IOF XML file (Purple Pen, OCAD), or type in the control coordinates.</span>
+          </p>
+        </div>
+        <div class="step">
+          <div class="num">2</div>
+          <h3><span class="hu">Indulj el</span><span class="en">Start running</span></h3>
+          <p>
+            <span class="hu">Küldd át a pályát az órára, vagy futtasd a telefonon. A rajtnál indítsd az időt.</span>
+            <span class="en">Send the course to your watch, or run it on your phone. Start the clock at the start triangle.</span>
+          </p>
+        </div>
+        <div class="step">
+          <div class="num">3</div>
+          <h3><span class="hu">Fogd meg a pontokat</span><span class="en">Punch the controls</span></h3>
+          <p>
+            <span class="hu">Ha a soron következő pont körzetébe érsz, az app rezeg, csipog, és rögzíti a részidőt.</span>
+            <span class="en">When you reach the next control, the app vibrates, beeps and records your split.</span>
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="features">
+    <div class="wrap">
+      <h2><span class="hu">Funkciók</span><span class="en">Features</span></h2>
+      <p class="sub">
+        <span class="hu">Edzésre készült, tájfutóknak.</span>
+        <span class="en">Made for training, by an orienteer.</span>
+      </p>
+      <div class="features">
+        <div class="feature"><div class="ic">⌚</div><div>
+          <h3><span class="hu">Apple Watch</span><span class="en">Apple Watch</span></h3>
+          <p><span class="hu">Nagy, jól olvasható számok futás közben. Erős rezgés és csipogás pontfogáskor.</span><span class="en">Big, easy-to-read numbers while running. Strong haptics and a beep at every control.</span></p>
+        </div></div>
+        <div class="feature"><div class="ic">📱</div><div>
+          <h3><span class="hu">iPhone is elég</span><span class="en">iPhone works too</span></h3>
+          <p><span class="hu">Óra nélkül is használható: a telefon zsebben is jelez, és bemondja a pontot.</span><span class="en">No watch? Your phone works in your pocket and announces each control.</span></p>
+        </div></div>
+        <div class="feature"><div class="ic">🎯</div><div>
+          <h3><span class="hu">Állítható körzet</span><span class="en">Adjustable radius</span></h3>
+          <p><span class="hu">Alapból 15 méteren belül fogadja el a pontot. Ha a GPS nem fogja meg, kézzel is elfogadhatod.</span><span class="en">Controls are punched within 15 m by default. If GPS misses one, punch it manually.</span></p>
+        </div></div>
+        <div class="feature"><div class="ic">🧭</div><div>
+          <h3><span class="hu">Rejtett segítség</span><span class="en">Hidden help</span></h3>
+          <p><span class="hu">Ha elakadsz, egy suhintással megnézheted a távolságot és az irányt a következő pontig.</span><span class="en">Stuck? One swipe shows the distance and direction to the next control.</span></p>
+        </div></div>
+        <div class="feature"><div class="ic">⏱️</div><div>
+          <h3><span class="hu">Részidők és előzmények</span><span class="en">Splits and history</span></h3>
+          <p><span class="hu">Minden futás eltárolódik a részidőkkel együtt. Szünetet is tarthatsz.</span><span class="en">Every run is saved with its splits. You can pause and resume.</span></p>
+        </div></div>
+        <div class="feature"><div class="ic">❤️</div><div>
+          <h3><span class="hu">Egészség app – ha kéred</span><span class="en">Apple Health – if you want</span></h3>
+          <p><span class="hu">Bekapcsolva a futás edzésként mentődik pulzussal, távval és útvonallal. Alapból kikapcsolva.</span><span class="en">If enabled, the run is saved as a workout with heart rate, distance and route. Off by default.</span></p>
+        </div></div>
+      </div>
+      <div class="note">
+        <span class="hu">Hamarosan: pályák betöltése közvetlenül a <strong>Livelox</strong>-ról.</span>
+        <span class="en">Coming soon: load courses directly from <strong>Livelox</strong>.</span>
+      </div>
+    </div>
+  </section>
+
+  <section id="privacy" class="alt privacy">
+    <div class="wrap">
+      <h2><span class="hu">Adatvédelem</span><span class="en">Privacy</span></h2>
+      <p class="sub">
+        <span class="hu">Röviden: az adataid a te eszközeiden maradnak.</span>
+        <span class="en">In short: your data stays on your devices.</span>
+      </p>
+      <ul class="hu">
+        <li><strong>Nincs fiók, nincs szerver.</strong> A pályák és a futások csak az iPhone-odon és az órádon tárolódnak.</li>
+        <li><strong>Helyadatok:</strong> a GPS-t csak futás közben használjuk, a pontfogáshoz. A helyzetedet nem küldjük el sehova.</li>
+        <li><strong>Egészség app:</strong> csak akkor írunk bele, ha a beállításokban bekapcsolod. Más adatot nem olvasunk ki belőle.</li>
+        <li><strong>Livelox:</strong> ha majd bejelentkezel, csak a nyilvános pályaadatokat töltjük le. A jelszavadat nem látjuk.</li>
+        <li><strong>Nincs reklám és nincs követés.</strong></li>
+      </ul>
+      <ul class="en">
+        <li><strong>No account, no server.</strong> Courses and runs are stored only on your iPhone and Apple Watch.</li>
+        <li><strong>Location:</strong> GPS is used only during a run, to detect controls. Your location is never sent anywhere.</li>
+        <li><strong>Apple Health:</strong> we only write to it if you turn this on in the settings. We read nothing else.</li>
+        <li><strong>Livelox:</strong> when you sign in, we only download public course data. We never see your password.</li>
+        <li><strong>No ads and no tracking.</strong></li>
+      </ul>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap row">
+    <span>© 2026 VirtuO · virtuo.run</span>
+    <span>
+      <span class="hu">Az iPhone és az Apple Watch az Apple Inc. védjegye.</span>
+      <span class="en">iPhone and Apple Watch are trademarks of Apple Inc.</span>
+    </span>
+  </div>
+</footer>
+
+<script>
+  // Nyelvváltás (magyar / angol). A választás megmarad a böngészőben.
+  (function () {
+    var body = document.body, btn = document.getElementById('langBtn');
+    function set(lang) {
+      body.setAttribute('data-lang', lang);
+      document.documentElement.lang = lang;
+      btn.textContent = lang === 'hu' ? 'English' : 'Magyar';
+      try { localStorage.setItem('virtuo-lang', lang); } catch (e) {}
+    }
+    var saved = null;
+    try { saved = localStorage.getItem('virtuo-lang'); } catch (e) {}
+    set(saved || ((navigator.language || 'hu').slice(0, 2) === 'hu' ? 'hu' : 'en'));
+    btn.addEventListener('click', function () { set(body.getAttribute('data-lang') === 'hu' ? 'en' : 'hu'); });
+  })();
+</script>
+</body>
+</html>
