@@ -105,6 +105,9 @@
   .livelox h2, .livelox h3 { color: #fff; }
   .livelox .sub { color: rgba(255,255,255,.85); }
   .livelox .kicker { display: inline-block; background: var(--orange); color: #000; font-weight: 700; font-size: 13px; letter-spacing: .04em; text-transform: uppercase; border-radius: 999px; padding: 4px 12px; margin-bottom: 14px; }
+  .livelox .lx-logo { display: inline-block; margin-bottom: 18px; line-height: 0; }
+  .livelox .lx-logo img { height: 36px; width: auto; display: block; }
+  @media (max-width: 760px) { .livelox .lx-logo img { height: 28px; } }
   .livelox .step { background: rgba(255,255,255,.08); border-color: rgba(255,255,255,.18); }
   .livelox .step p { color: rgba(255,255,255,.85); }
   .livelox .step .num { border-color: var(--orange); color: #fff; }
@@ -141,7 +144,6 @@
       <a class="hide-m" href="#how"><span class="hu">Hogyan működik?</span><span class="en">How it works</span></a>
       <a class="hide-m" href="#features"><span class="hu">Funkciók</span><span class="en">Features</span></a>
       <a href="#livelox">Livelox</a>
-      <a href="#privacy"><span class="hu">Adatvédelem</span><span class="en">Privacy</span></a>
       <a class="cta" href="#get"><span class="hu">Letöltés</span><span class="en">Get the app</span></a>
     </div>
     <button class="lang" id="langBtn" type="button" aria-label="Nyelv / Language">Magyar</button>
@@ -186,8 +188,8 @@
           <div class="num">1</div>
           <h3><span class="hu">Töltsd be a pályát</span><span class="en">Load a course</span></h3>
           <p>
-            <span class="hu">Töltsd le a pályát a Livelox-ról, importáld IOF XML fájlból (Purple Pen, OCAD), vagy írd be a pontok koordinátáit kézzel.</span>
-            <span class="en">Download the course from Livelox, import an IOF XML file (Purple Pen, OCAD), or type in the control coordinates.</span>
+            <span class="hu">Töltsd le a pályát a Livelox-ról, importáld IOF XML (Purple Pen, OCAD) vagy GPX fájlból, vagy írd be a pontok koordinátáit kézzel.</span>
+            <span class="en">Download the course from Livelox, import an IOF XML (Purple Pen, OCAD) or GPX file, or type in the control coordinates.</span>
           </p>
         </div>
         <div class="step">
@@ -248,7 +250,7 @@
 
   <section id="livelox" class="livelox">
     <div class="wrap">
-      <span class="kicker"><span class="hu">Livelox-import</span><span class="en">Livelox import</span></span>
+      <a class="lx-logo" href="https://www.livelox.com" target="_blank" rel="noopener"><img src="assets/partners/livelox-logo-white.svg" width="119" height="36" alt="Livelox"></a>
       <h2><span class="hu">Fusd újra a versenyeidet – egyenesen a Livelox-ról</span><span class="en">Re-run your races – straight from Livelox</span></h2>
       <p class="sub">
         <span class="hu">Nem kell fájlokat keresgélned. Jelentkezz be a Livelox-fiókoddal, keresd meg a versenyt, válaszd ki a kategóriádat, és a pálya már az órádon is van.</span>
@@ -343,8 +345,8 @@
   <div class="wrap row">
     <span>© 2026 VirtuO · virtuo.run</span>
     <span>
-      <span class="hu">Az iPhone és az Apple Watch az Apple Inc., az Android és a Google Play a Google LLC védjegye. A Livelox, az OCAD és a Purple Pen a jogtulajdonosaik védjegyei, illetve márkanevei. Az IOF XML a Nemzetközi Tájfutó Szövetség (IOF) adatformátuma. A VirtuO független alkalmazás, nem ezeknek a cégeknek a terméke.</span>
-      <span class="en">iPhone and Apple Watch are trademarks of Apple Inc.; Android and Google Play are trademarks of Google LLC. Livelox, OCAD and Purple Pen are trademarks or brand names of their respective owners. IOF XML is a data format of the International Orienteering Federation (IOF). VirtuO is an independent app and not a product of these companies.</span>
+      <span class="hu">Az iPhone és az Apple Watch az Apple Inc., az Android és a Google Play a Google LLC védjegye. A Livelox, az OCAD és a Purple Pen a jogtulajdonosaik védjegyei, illetve márkanevei. Az IOF XML a Nemzetközi Tájfutó Szövetség (IOF) adatformátuma. A VirtuO független alkalmazás, nem ezeknek a cégeknek a terméke. A Livelox logót a Livelox engedélyével használjuk.</span>
+      <span class="en">iPhone and Apple Watch are trademarks of Apple Inc.; Android and Google Play are trademarks of Google LLC. Livelox, OCAD and Purple Pen are trademarks or brand names of their respective owners. IOF XML is a data format of the International Orienteering Federation (IOF). VirtuO is an independent app and not a product of these companies. Livelox logo used with permission.</span>
     </span>
   </div>
 </footer>
