@@ -1,0 +1,56 @@
+<!doctype html>
+<html lang="{{$lang}}" class="no-js">
+<head>
+{{>head.html}}
+<style>
+{{>css-base.css}}
+{{>css-picker.css}}
+{{>css-doc.css}}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="wrap nav">
+    <a class="brand" href="index.html"><img src="{{$root}}assets/icon.png" alt="">VirtuO</a>
+    {{>picker.html}}
+  </div>
+</header>
+
+<main class="page wrap">
+<div class="doc">
+<h1>{{privacy.privacy-policy}}</h1>
+<p class="meta">{{privacy.effective-date-2026-11-19}}</p>
+<p class="sub">{{privacy.in-short-no-account-no}}</p>
+
+<h2>{{privacy.who-is-responsible}}</h2>
+<p>{{privacy.the-developer-of-the-app}}</p>
+
+<h2>{{privacy.what-the-app-stores-and}}</h2>
+<ul>{{privacy.courses-and-runs-loaded-courses}}</ul>
+
+<h2>{{privacy.location}}</h2>
+<ul>{{privacy.the-app-uses-gps-only}}</ul>
+
+<h2>{{privacy.apple-health}}</h2>
+<p>{{privacy.only-the-apple-watch-app}}</p>
+
+<h2>{{privacy.livelox}}</h2>
+<p>{{privacy.signing-in-to-livelox-is}}</p>
+
+<h2>{{privacy.this-website}}</h2>
+<p>{{privacy.virtuo-run-uses-no-cookies}}</p>
+
+<h2>{{privacy.retention-and-deletion}}</h2>
+<p>{{privacy.because-the-data-is-on}}</p>
+
+<h2>{{privacy.changes-and-contact}}</h2>
+<p>{{privacy.if-this-policy-changes-we}}</p>
+</div>
+</main>
+
+{{>footer-doc.html}}
+
+{{>picker.js}}
+</body>
+</html>

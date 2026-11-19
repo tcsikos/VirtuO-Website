@@ -1,0 +1,411 @@
+<!doctype html>
+<html lang="hu" class="no-js">
+<head>
+<meta charset="utf-8">
+<script>document.documentElement.className='js'</script>
+
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>VirtuO – virtuális tájfutó pályák iPhone-ra, Apple Watch-ra és Androidra</title>
+<meta name="description" content="Fuss le valódi tájfutó pályákat akkor is, ha a bójákat már összeszedték. Töltsd le a pályát a Livelox-ról, indítsd el a VirtuO-ban, és a telefonod vagy az órád jelez, amikor elérsz egy ellenőrzőpontot. iPhone-on, Apple Watch-on és Androidon működik.">
+<link rel="canonical" href="https://virtuo.run/hu/">
+<link rel="alternate" hreflang="en" href="https://virtuo.run/">
+<link rel="alternate" hreflang="hu" href="https://virtuo.run/hu/">
+<link rel="alternate" hreflang="de" href="https://virtuo.run/de/">
+<link rel="alternate" hreflang="fr" href="https://virtuo.run/fr/">
+<link rel="alternate" hreflang="es" href="https://virtuo.run/es/">
+<link rel="alternate" hreflang="nb" href="https://virtuo.run/nb/">
+<link rel="alternate" hreflang="sv" href="https://virtuo.run/sv/">
+<link rel="alternate" hreflang="pl" href="https://virtuo.run/pl/">
+<link rel="alternate" hreflang="fi" href="https://virtuo.run/fi/">
+<link rel="alternate" hreflang="cs" href="https://virtuo.run/cs/">
+<link rel="alternate" hreflang="x-default" href="https://virtuo.run/">
+<link rel="icon" href="../assets/icon.png">
+<link rel="apple-touch-icon" href="../assets/icon.png">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="VirtuO">
+<meta property="og:title" content="VirtuO">
+<meta property="og:description" content="Virtuális ellenőrzőpontok tájfutáshoz – iPhone, Apple Watch és Android. Livelox-import.">
+<meta property="og:url" content="https://virtuo.run/hu/">
+<meta property="og:locale" content="hu_HU">
+<meta property="og:image" content="https://virtuo.run/assets/logo-light.png">
+<style>
+  :root {
+    --green: #17522F;
+    --orange: #FF5A00;
+    --ink: #14211A;
+    --muted: #5B6B62;
+    --bg: #FFFFFF;
+    --soft: #F3F7F4;
+    --line: #DDE7E0;
+    --card: #FFFFFF;
+    --link: #17522F;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --ink: #EAF2EC;
+      --muted: #A9B8AE;
+      --bg: #0F1712;
+      --soft: #16211A;
+      --line: #26352B;
+      --card: #18241C;
+      --link: #6FD28F;
+    }
+  }
+  * { box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  body {
+    margin: 0;
+    font-family: -apple-system, BlinkMacSystemFont, "SF Pro Text", "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    color: var(--ink);
+    background: var(--bg);
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+  }
+  a { color: var(--link); }
+  :focus-visible { outline: 3px solid var(--orange); outline-offset: 2px; }
+  .wrap { max-width: 1040px; margin: 0 auto; padding: 0 20px; }
+
+  /* fejléc */
+  header { border-bottom: 1px solid var(--line); }
+  .nav { display: flex; align-items: center; justify-content: space-between; min-height: 64px; gap: 0 16px; flex-wrap: wrap; }
+  .nav .brand { display: flex; align-items: center; gap: 10px; font-weight: 700; font-size: 20px; color: var(--ink); text-decoration: none; }
+  .nav .brand img { width: 32px; height: 32px; border-radius: 8px; }
+  .nav .links { display: flex; gap: 4px 8px; align-items: center; margin-left: auto; }
+  .nav .links a { color: var(--muted); text-decoration: none; font-size: 15px; display: inline-flex; align-items: center; min-height: 44px; padding: 0 8px; }
+  .nav .links a.cta { color: #000; background: var(--orange); border-radius: 999px; padding: 0 16px; font-weight: 600; }
+  .nav .links a.cta:hover { color: #000; filter: brightness(1.08); }
+  .nav .links a:hover { color: var(--ink); }
+  /* nyelvválasztó */
+  .lp { position: relative; }
+  .nav .brand + .lp { margin-left: auto; }
+  .lp-btn { display: inline-flex; align-items: center; gap: 8px; border: 1px solid var(--line); background: var(--card); color: var(--ink); border-radius: 999px; padding: 0 12px; min-height: 44px; min-width: 44px; font: inherit; font-size: 14px; font-weight: 600; cursor: pointer; }
+  .lp-btn:hover { border-color: var(--muted); }
+  .lp-btn .chev { width: 10px; height: 6px; flex: none; transition: transform .15s; }
+  .lp.open .lp-btn .chev { transform: rotate(180deg); }
+  .flag { width: 21px; height: 14px; flex: none; border-radius: 2px; box-shadow: 0 0 0 1px rgba(128,128,128,.45); display: block; }
+  .lp-list { display: none; position: absolute; right: 0; top: calc(100% + 6px); z-index: 50; list-style: none; margin: 0; padding: 6px; min-width: 190px; background: var(--card); border: 1px solid var(--line); border-radius: 14px; box-shadow: 0 8px 24px rgba(0,0,0,.18); }
+  .lp.open .lp-list, .no-js .lp:hover .lp-list, .no-js .lp:focus-within .lp-list { display: block; }
+  .lp-list li { margin: 0; }
+  .lp-list a { display: flex; align-items: center; gap: 10px; min-height: 44px; padding: 0 12px; border-radius: 10px; color: var(--ink); text-decoration: none; font-size: 15px; }
+  .lp-list a:hover { background: var(--soft); }
+  .lp-list a[aria-current="true"] { background: var(--soft); font-weight: 700; }
+  /* nyitó rész */
+  .hero { padding: 64px 0 56px; text-align: center; }
+  .logo-wrap { width: min(560px, 100%); margin: 0 auto; }
+  .hero img.logo { width: 100%; height: auto; display: block; }
+  .hero h1 { font-size: clamp(28px, 4.4vw, 44px); line-height: 1.15; margin: 28px auto 14px; max-width: 760px; letter-spacing: -0.02em; }
+  .hero p.lead { font-size: clamp(17px, 2.2vw, 20px); color: var(--muted); max-width: 640px; margin: 0 auto 28px; }
+  .badges { display: flex; flex-wrap: wrap; gap: 10px; justify-content: center; }
+  .badge { display: inline-flex; align-items: center; gap: 8px; background: var(--soft); border: 1px solid var(--line); border-radius: 999px; padding: 8px 16px; font-size: 15px; color: var(--muted); }
+  .badge .dot { width: 8px; height: 8px; border-radius: 50%; background: var(--orange); }
+
+  /* szakaszok */
+  section { padding: 56px 0; }
+  section.alt { background: var(--soft); }
+  h2 { font-size: clamp(24px, 3.2vw, 32px); margin: 0 0 8px; letter-spacing: -0.01em; }
+  .sub { color: var(--muted); margin: 0 0 32px; max-width: 680px; }
+
+  .steps { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
+  .step { background: var(--card); border: 1px solid var(--line); border-radius: 16px; padding: 22px; }
+  .step .num { width: 34px; height: 34px; border-radius: 50%; border: 3px solid var(--orange); color: var(--orange); font-weight: 700; font-size: 20px; display: grid; place-items: center; margin-bottom: 12px; }
+  .step h3 { margin: 0 0 6px; font-size: 18px; }
+  .step p { margin: 0; color: var(--muted); font-size: 15.5px; }
+
+  .features { display: grid; grid-template-columns: repeat(2, 1fr); gap: 16px 28px; }
+  .feature { display: flex; gap: 14px; align-items: flex-start; }
+  .feature .ic { flex: none; width: 40px; height: 40px; border-radius: 10px; background: var(--green); color: #fff; display: grid; place-items: center; font-size: 20px; }
+  .feature h3 { margin: 2px 0 2px; font-size: 17px; }
+  .feature p { margin: 0; color: var(--muted); font-size: 15.5px; }
+
+  .note { background: var(--card); border-left: 4px solid var(--orange); border-radius: 0; padding: 14px 18px; color: var(--muted); font-size: 15.5px; margin-top: 28px; }
+
+  .lead .lx { color: var(--orange); text-decoration: none; }
+  .lead .lx:hover, .lead .lx:focus-visible { text-decoration: underline; }
+  a.fn { color: var(--orange); text-decoration: none; font-weight: 700; padding: 0 2px; }
+  .footnote { font-size: 13.5px; color: var(--muted); margin: 0 0 10px; }
+  .gal-h { font-size: 18px; margin: 26px 0 12px; }
+  .gallery { display: flex; gap: 18px; overflow-x: auto; scroll-snap-type: x mandatory; padding: 4px 4px 14px; -webkit-overflow-scrolling: touch; }
+  .shot { flex: none; margin: 0; scroll-snap-align: start; width: 220px; }
+  .shot img { display: block; width: 100%; height: auto; border-radius: 26px; border: 1px solid var(--line); background: #000; }
+  .shot.watch { width: 200px; align-self: center; }
+  .shot.watch img { border-radius: 44px; }
+  .shot figcaption { color: var(--muted); font-size: 14px; text-align: center; margin-top: 10px; }
+  @media (max-width: 760px) { .shot { width: 72vw; max-width: 260px; } .shot.watch { width: 60vw; } }
+  .livelox { background: var(--green); color: #fff; }
+  .livelox h2, .livelox h3 { color: #fff; }
+  .livelox .sub { color: rgba(255,255,255,.85); }
+  .livelox .kicker { display: inline-block; background: var(--orange); color: #000; font-weight: 700; font-size: 13px; letter-spacing: .04em; text-transform: uppercase; border-radius: 999px; padding: 4px 12px; margin-bottom: 14px; }
+  .livelox .lx-logo { display: inline-block; margin-bottom: 18px; line-height: 0; }
+  .livelox .lx-logo img { height: 36px; width: auto; display: block; }
+  @media (max-width: 760px) { .livelox .lx-logo img { height: 28px; } }
+  .livelox .step { background: rgba(255,255,255,.08); border-color: rgba(255,255,255,.18); }
+  .livelox .step p { color: rgba(255,255,255,.85); }
+  .livelox .step .num { border-color: var(--orange); color: #fff; }
+  .livelox .fine { color: rgba(255,255,255,.7); font-size: 14px; margin: 22px 0 0; }
+  @media (prefers-color-scheme: dark) { .livelox { background: #123F24; } }
+
+  .privacy ul { padding-left: 20px; margin: 0; }
+  .privacy li { margin: 6px 0; color: var(--muted); }
+  .privacy li strong { color: var(--ink); }
+
+  footer { border-top: 1px solid var(--line); padding: 28px 0 40px; color: var(--muted); font-size: 14px; }
+  footer .row { display: flex; justify-content: space-between; gap: 16px; flex-wrap: wrap; }
+
+  @media (max-width: 760px) {
+    .steps, .features { grid-template-columns: 1fr; }
+    .nav { padding-top: 6px; padding-bottom: 6px; }
+    .nav .links { order: 3; width: 100%; margin-left: 0; justify-content: space-between; }
+    .nav .links a.hide-m { display: none; }
+    .nav .links a { padding: 0 6px; }
+    .hero { padding: 40px 20px 36px; }
+    section { padding: 44px 0; }
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="wrap nav">
+    <a class="brand" href="#top"><img src="../assets/icon.png" alt="">VirtuO</a>
+    <div class="links">
+      <a class="hide-m" href="#how">Hogyan működik?</a>
+      <a class="hide-m" href="#features">Funkciók</a>
+      <a href="#livelox">Livelox</a>
+      <a class="cta" href="#get">Letöltés</a>
+    </div>
+    <div class="lp" id="lp">
+      <button class="lp-btn" id="lp-btn" type="button" aria-expanded="false" aria-controls="lp-list" aria-label="Nyelv: Magyar (HU)">
+        <svg class="flag" viewBox="0 0 30 20" aria-hidden="true" focusable="false"><use href="#flag-hu"/></svg><span class="lp-code" aria-hidden="true">HU</span><svg class="chev" viewBox="0 0 10 6" aria-hidden="true" focusable="false"><path d="M1 1l4 4 4-4" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </button>
+      <ul class="lp-list" id="lp-list">
+        <li><a href="/" lang="en" hreflang="en" data-lang="en"><svg class="flag" viewBox="0 0 30 20" aria-hidden="true" focusable="false"><use href="#flag-en"/></svg>English</a></li>
+        <li><a href="/hu/" lang="hu" hreflang="hu" data-lang="hu" aria-current="true"><svg class="flag" viewBox="0 0 30 20" aria-hidden="true" focusable="false"><use href="#flag-hu"/></svg>Magyar</a></li>
+        <li><a href="/de/" lang="de" hreflang="de" data-lang="de"><svg class="flag" viewBox="0 0 30 20" aria-hidden="true" focusable="false"><use href="#flag-de"/></svg>Deutsch</a></li>
+        <li><a href="/fr/" lang="fr" hreflang="fr" data-lang="fr"><svg class="flag" viewBox="0 0 30 20" aria-hidden="true" focusable="false"><use href="#flag-fr"/></svg>Français</a></li>
+        <li><a href="/es/" lang="es" hreflang="es" data-lang="es"><svg class="flag" viewBox="0 0 30 20" aria-hidden="true" focusable="false"><use href="#flag-es"/></svg>Español</a></li>
+        <li><a href="/nb/" lang="nb" hreflang="nb" data-lang="nb"><svg class="flag" viewBox="0 0 30 20" aria-hidden="true" focusable="false"><use href="#flag-nb"/></svg>Norsk</a></li>
+        <li><a href="/sv/" lang="sv" hreflang="sv" data-lang="sv"><svg class="flag" viewBox="0 0 30 20" aria-hidden="true" focusable="false"><use href="#flag-sv"/></svg>Svenska</a></li>
+        <li><a href="/pl/" lang="pl" hreflang="pl" data-lang="pl"><svg class="flag" viewBox="0 0 30 20" aria-hidden="true" focusable="false"><use href="#flag-pl"/></svg>Polski</a></li>
+        <li><a href="/fi/" lang="fi" hreflang="fi" data-lang="fi"><svg class="flag" viewBox="0 0 30 20" aria-hidden="true" focusable="false"><use href="#flag-fi"/></svg>Suomi</a></li>
+        <li><a href="/cs/" lang="cs" hreflang="cs" data-lang="cs"><svg class="flag" viewBox="0 0 30 20" aria-hidden="true" focusable="false"><use href="#flag-cs"/></svg>Čeština</a></li>
+      </ul>
+      <svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false"><defs>
+<symbol id="flag-en" viewBox="0 0 30 20"><rect width="30" height="20" fill="#012169"/><path d="M0 0L30 20M30 0L0 20" stroke="#fff" stroke-width="3.4"/><path d="M0 0L30 20M30 0L0 20" stroke="#C8102E" stroke-width="1.4"/><path d="M15 0V20M0 10H30" stroke="#fff" stroke-width="6"/><path d="M15 0V20M0 10H30" stroke="#C8102E" stroke-width="3.6"/></symbol>
+<symbol id="flag-hu" viewBox="0 0 30 20"><rect width="30" height="20" fill="#fff"/><rect width="30" height="6.67" fill="#CE2939"/><rect y="13.33" width="30" height="6.67" fill="#477050"/></symbol>
+<symbol id="flag-de" viewBox="0 0 30 20"><rect width="30" height="20" fill="#FFCE00"/><rect width="30" height="6.67" fill="#000"/><rect y="6.67" width="30" height="6.67" fill="#DD0000"/></symbol>
+<symbol id="flag-fr" viewBox="0 0 30 20"><rect width="30" height="20" fill="#fff"/><rect width="10" height="20" fill="#0055A4"/><rect x="20" width="10" height="20" fill="#EF4135"/></symbol>
+<symbol id="flag-es" viewBox="0 0 30 20"><rect width="30" height="20" fill="#AA151B"/><rect y="5" width="30" height="10" fill="#F1BF00"/></symbol>
+<symbol id="flag-nb" viewBox="0 0 30 20"><rect width="30" height="20" fill="#BA0C2F"/><path d="M11 0V20M0 10H30" stroke="#fff" stroke-width="4"/><path d="M11 0V20M0 10H30" stroke="#00205B" stroke-width="2"/></symbol>
+<symbol id="flag-sv" viewBox="0 0 30 20"><rect width="30" height="20" fill="#006AA7"/><path d="M11 0V20M0 10H30" stroke="#FECC02" stroke-width="4"/></symbol>
+<symbol id="flag-pl" viewBox="0 0 30 20"><rect width="30" height="20" fill="#fff"/><rect y="10" width="30" height="10" fill="#DC143C"/></symbol>
+<symbol id="flag-fi" viewBox="0 0 30 20"><rect width="30" height="20" fill="#fff"/><path d="M11 0V20M0 10H30" stroke="#003580" stroke-width="4"/></symbol>
+<symbol id="flag-cs" viewBox="0 0 30 20"><rect width="30" height="20" fill="#fff"/><rect y="10" width="30" height="10" fill="#D7141A"/><path d="M0 0L15 10L0 20Z" fill="#11457E"/></symbol>
+</defs></svg>
+    </div>
+  </div>
+</header>
+
+<main id="top">
+  <div class="hero wrap">
+    <div class="logo-wrap"><picture>
+      <source media="(prefers-color-scheme: dark)" srcset="../assets/logo-dark.png">
+      <img class="logo" src="../assets/logo-light.png" alt="VirtuO" width="1759" height="486">
+    </picture></div>
+    <h1>
+      Tájfutó pálya, bóják nélkül.
+    </h1>
+    <p class="lead">
+      Töltsd le a pályát a <a class="lx" href="https://www.livelox.com" target="_blank" rel="noopener"><strong>Livelox</strong></a>-ról, indítsd el a VirtuO appban, és jelzést kapsz a telefonodon vagy az órádon, amikor elérsz egy ellenőrzőpontot. Működik iPhone-on, Apple Watch-on és Androidon is, bármilyen okosórával<a class="fn" href="#fn1" aria-describedby="fn1">*</a>.
+    </p>
+    <div class="badges" id="get">
+      <span class="badge"><span class="dot"></span>
+        iPhone és Apple Watch: hamarosan az App Store-ban
+      </span>
+      <span class="badge"><span class="dot"></span>
+        Android: hamarosan Google Play-en
+      </span>
+    </div>
+  </div>
+
+  <section id="how" class="alt">
+    <div class="wrap">
+      <h2>Hogyan működik?</h2>
+      <p class="sub">
+        Három lépés, és már futhatsz is.
+      </p>
+      <div class="steps">
+        <div class="step">
+          <div class="num">1</div>
+          <h3>Töltsd be a pályát</h3>
+          <p>
+            Töltsd le a pályát a Livelox-ról, importáld IOF XML (Purple Pen, OCAD) vagy pontokat tartalmazó GPX fájlból, vagy írd be a pontok koordinátáit kézzel.
+          </p>
+        </div>
+        <div class="step">
+          <div class="num">2</div>
+          <h3>Indulj el</h3>
+          <p>
+            Küldd át a pályát az órára, vagy futtasd a telefonon. A rajtnál indítsd az időt.
+          </p>
+        </div>
+        <div class="step">
+          <div class="num">3</div>
+          <h3>Fogd meg a pontokat</h3>
+          <p>
+            Ha a soron következő pont körzetébe érsz, az app rezeg, csipog, és rögzíti a részidőt.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="features">
+    <div class="wrap">
+      <h2>Funkciók</h2>
+      <p class="sub">
+        Edzésre készült, tájfutóknak.
+      </p>
+      <div class="features">
+        <div class="feature"><div class="ic">📱</div><div>
+          <h3>Telefon – okosórával vagy anélkül</h3>
+          <p>iPhone-on és Android telefonon is működik: a telefon a zsebedben is jelez, bemondja a pontot, és értesítést küld, így az okosórád is rezeg pontfogáskor<a class="fn" href="#fn1" aria-describedby="fn1">*</a>.</p>
+        </div></div>
+        <div class="feature"><div class="ic">⌚</div><div>
+          <h3>Saját Apple Watch-app</h3>
+          <p>Nagy, jól olvasható számok futás közben, erős rezgés és csipogás pontfogáskor. A pálya átküldése után telefon nélkül is futhatsz vele.</p>
+        </div></div>
+        <div class="feature"><div class="ic">🎯</div><div>
+          <h3>Állítható körzet</h3>
+          <p>Alapból 15 méteren belül fogadja el a pontot. Ha a GPS nem fogja meg, kézzel is elfogadhatod.</p>
+        </div></div>
+        <div class="feature"><div class="ic">🧭</div><div>
+          <h3>Rejtett segítség</h3>
+          <p>Ha elakadsz, egy suhintással megnézheted a távolságot és az irányt a következő pontig.</p>
+        </div></div>
+        <div class="feature"><div class="ic">⏱️</div><div>
+          <h3>Részidők és előzmények</h3>
+          <p>Minden futás eltárolódik a részidőkkel együtt. Szünetet is tarthatsz.</p>
+        </div></div>
+        <div class="feature"><div class="ic">❤️</div><div>
+          <h3>Edzés rögzítése Apple Watch-on – ha kéred</h3>
+          <p>Apple Watch-on bekapcsolva a futás edzésként mentődik pulzussal, távval és útvonallal. Alapból kikapcsolva.</p>
+        </div></div>
+      </div>
+    </div>
+  </section>
+
+  <section id="livelox" class="livelox">
+    <div class="wrap">
+      <a class="lx-logo" href="https://www.livelox.com" target="_blank" rel="noopener"><img src="../assets/partners/livelox-logo-white.svg" width="119" height="36" alt="Livelox"></a>
+      <h2>Fusd újra a versenyeidet – egyenesen a Livelox-ról</h2>
+      <p class="sub">
+        Nem kell fájlokat keresgélned. Jelentkezz be a Livelox-fiókoddal, keresd meg a versenyt, válaszd ki a kategóriádat, és a pálya már az órádon is van.
+      </p>
+      <div class="steps">
+        <div class="step">
+          <div class="num">1</div>
+          <h3>Bejelentkezés</h3>
+          <p>A Livelox saját oldalán lépsz be. A jelszavadat a VirtuO soha nem látja.</p>
+        </div>
+        <div class="step">
+          <div class="num">2</div>
+          <h3>Verseny és kategória</h3>
+          <p>Keress rá a versenyre, és válaszd ki a kategóriát, amit futni szeretnél.</p>
+        </div>
+        <div class="step">
+          <div class="num">3</div>
+          <h3>Indulhatsz</h3>
+          <p>A pálya letöltődik a pontokkal együtt. Fusd le újra, edzésként, a saját tempódban.</p>
+        </div>
+      </div>
+      <p class="fine">Csak a nyilvános pályaadatokat töltjük le. A Livelox név a jogtulajdonosáé; a VirtuO független alkalmazás, nem a Livelox terméke.</p>
+    </div>
+  </section>
+
+  <section id="screens">
+    <div class="wrap">
+      <h2>Így néz ki</h2>
+      <p class="sub">Képek az iPhone-, az Apple Watch- és az Android-appból. Húzd oldalra a többihez.</p>
+      <h3 class="gal-h">iPhone &amp; Apple Watch</h3>
+      <div class="gallery">
+        <figure class="shot"><img src="../assets/screens/iphone-livelox.png" width="646" height="1400" loading="lazy" alt="Livelox-import: szűrők és eseménylista">
+          <figcaption>Livelox-import: szűrők és eseménylista</figcaption></figure>
+        <figure class="shot"><img src="../assets/screens/iphone-map.png" width="644" height="1400" loading="lazy" alt="Pálya a térképen">
+          <figcaption>Pálya a térképen</figcaption></figure>
+        <figure class="shot"><img src="../assets/screens/iphone-run.png" width="644" height="1400" loading="lazy" alt="Futás közben">
+          <figcaption>Futás közben</figcaption></figure>
+        <figure class="shot"><img src="../assets/screens/iphone-help.png" width="646" height="1400" loading="lazy" alt="Segítség: irány és távolság">
+          <figcaption>Segítség: irány és távolság</figcaption></figure>
+        <figure class="shot"><img src="../assets/screens/iphone-lockscreen.jpg" width="646" height="1400" loading="lazy" alt="Lezárt képernyőn is látszik a következő pont és az idő">
+          <figcaption>Lezárt képernyőn is: következő pont és idő</figcaption></figure>
+        <figure class="shot watch"><img src="../assets/screens/watch-run.png" width="422" height="398" loading="lazy" alt="Futás Apple Watch-on">
+          <figcaption>Futás Apple Watch-on</figcaption></figure>
+      </div>
+      <h3 class="gal-h">Android</h3>
+      <div class="gallery">
+        <figure class="shot"><img src="../assets/screens/android-livelox.png" width="630" height="1400" loading="lazy" alt="Livelox-import: szűrők és eseménylista">
+          <figcaption>Livelox-import: szűrők és eseménylista</figcaption></figure>
+        <figure class="shot"><img src="../assets/screens/android-map.png" width="630" height="1400" loading="lazy" alt="Pálya a térképen">
+          <figcaption>Pálya a térképen</figcaption></figure>
+        <figure class="shot"><img src="../assets/screens/android-run.png" width="630" height="1400" loading="lazy" alt="Futás közben">
+          <figcaption>Futás közben</figcaption></figure>
+        <figure class="shot"><img src="../assets/screens/android-arrow.png" width="630" height="1400" loading="lazy" alt="Segítség: irány és távolság">
+          <figcaption>Segítség: irány és távolság</figcaption></figure>
+      </div>
+    </div>
+  </section>
+
+  <section id="privacy" class="alt privacy">
+    <div class="wrap">
+      <h2>Adatvédelem</h2>
+      <p class="sub">
+        Röviden: az adataid a te eszközeiden maradnak.
+      </p>
+      <ul><li><strong>Nincs fiók, nincs szerver.</strong> A pályák és a futások csak a telefonodon és az órádon tárolódnak.</li>
+        <li><strong>Helyadatok:</strong> a GPS-t csak futás közben használjuk, a pontfogáshoz. A helyzetedet nem küldjük el sehova.</li>
+        <li><strong>Apple Egészség app (csak Apple Watch):</strong> csak az óra-app ír bele, és csak akkor, ha a beállításokban bekapcsolod, hogy rögzítsen edzést. Az iPhone-app nem ír bele. Más adatot nem olvasunk ki belőle. Androidon nincs ilyen kapcsolat.</li>
+        <li><strong>Livelox:</strong> ha bejelentkezel, csak a nyilvános pályaadatokat töltjük le. A jelszavadat nem látjuk.</li>
+        <li><strong>Nincs reklám és nincs követés.</strong></li></ul>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <p class="footnote" id="fn1">*
+      Androidon a VirtuO pontfogáskor értesítést küld a telefonra, így minden okosóra, amely megjeleníti a telefon értesítéseit, rezegve jelez. Külön óra-app nem kell hozzá. iPhone-on ugyanígy működik: bármilyen okosóra jelez, amely megkapja az iPhone értesítéseit, Apple Watch nem szükséges, de Apple Watch-on a VirtuO saját óra-appként is fut: a pálya átküldése után telefon nélkül is futhatsz vele.
+    </p>
+  </div>
+  <div class="wrap row">
+    <span>© 2026 VirtuO · virtuo.run · <a href="privacy.html">Adatvédelem</a> · <a href="support.html">Támogatás</a></span>
+    <span>
+      Az iPhone és az Apple Watch az Apple Inc., az Android és a Google Play a Google LLC védjegye. A Livelox, az OCAD és a Purple Pen a jogtulajdonosaik védjegyei, illetve márkanevei. Az IOF XML a Nemzetközi Tájfutó Szövetség (IOF) adatformátuma. A VirtuO független alkalmazás, nem ezeknek a cégeknek a terméke. A Livelox logót a Livelox engedélyével használjuk.
+    </span>
+  </div>
+</footer>
+
+<script>
+(function () {
+  var box = document.getElementById('lp'), btn = document.getElementById('lp-btn');
+  if (!box || !btn) return;
+  var links = box.querySelectorAll('.lp-list a');
+  function isOpen() { return box.classList.contains('open'); }
+  function set(o) { box.classList.toggle('open', o); btn.setAttribute('aria-expanded', o ? 'true' : 'false'); }
+  btn.addEventListener('click', function () { set(!isOpen()); });
+  document.addEventListener('click', function (e) { if (!box.contains(e.target)) set(false); });
+  box.addEventListener('focusout', function (e) { if (e.relatedTarget && !box.contains(e.relatedTarget)) set(false); });
+  box.addEventListener('keydown', function (e) {
+    var k = e.key, i = Array.prototype.indexOf.call(links, document.activeElement);
+    if (k === 'Escape' && isOpen()) { set(false); btn.focus(); e.preventDefault(); }
+    else if (k === 'ArrowDown') { e.preventDefault(); set(true); links[(i + 1) % links.length].focus(); }
+    else if (k === 'ArrowUp' && isOpen()) { e.preventDefault(); links[(i < 0 ? 0 : i + links.length - 1) % links.length].focus(); }
+  });
+  Array.prototype.forEach.call(links, function (a) {
+    a.addEventListener('click', function () {
+      try { localStorage.setItem('virtuo-lang-choice', a.getAttribute('data-lang')); } catch (e) {}
+    });
+  });
+})();
+</script>
+</body>
+</html>

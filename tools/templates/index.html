@@ -1,0 +1,203 @@
+<!doctype html>
+<html lang="{{$lang}}" class="no-js">
+<head>
+{{>head.html}}
+<style>
+{{>css-base.css}}
+{{>css-picker.css}}
+{{>css-index.css}}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="wrap nav">
+    <a class="brand" href="#top"><img src="{{$root}}assets/icon.png" alt="">VirtuO</a>
+    <div class="links">
+      <a class="hide-m" href="#how">{{index.how-it-works}}</a>
+      <a class="hide-m" href="#features">{{index.features}}</a>
+      <a href="#livelox">Livelox</a>
+      <a class="cta" href="#get">{{index.get-the-app}}</a>
+    </div>
+    {{>picker.html}}
+  </div>
+</header>
+
+<main id="top">
+  <div class="hero wrap">
+    <div class="logo-wrap"><picture>
+      <source media="(prefers-color-scheme: dark)" srcset="{{$root}}assets/logo-dark.png">
+      <img class="logo" src="{{$root}}assets/logo-light.png" alt="VirtuO" width="1759" height="486">
+    </picture></div>
+    <h1>
+      {{index.orienteering-courses-without-the-flags}}
+    </h1>
+    <p class="lead">
+      {{index.download-the-course-from-livelox}}
+    </p>
+    <div class="badges" id="get">
+      <span class="badge"><span class="dot"></span>
+        {{index.iphone-and-apple-watch-coming}}
+      </span>
+      <span class="badge"><span class="dot"></span>
+        {{index.android-coming-soon-to-google}}
+      </span>
+    </div>
+  </div>
+
+  <section id="how" class="alt">
+    <div class="wrap">
+      <h2>{{index.how-it-works}}</h2>
+      <p class="sub">
+        {{index.three-steps-and-you-are}}
+      </p>
+      <div class="steps">
+        <div class="step">
+          <div class="num">1</div>
+          <h3>{{index.load-a-course}}</h3>
+          <p>
+            {{index.download-the-course-from-livelox-2}}
+          </p>
+        </div>
+        <div class="step">
+          <div class="num">2</div>
+          <h3>{{index.start-running}}</h3>
+          <p>
+            {{index.send-the-course-to-your}}
+          </p>
+        </div>
+        <div class="step">
+          <div class="num">3</div>
+          <h3>{{index.punch-the-controls}}</h3>
+          <p>
+            {{index.when-you-reach-the-next}}
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="features">
+    <div class="wrap">
+      <h2>{{index.features}}</h2>
+      <p class="sub">
+        {{index.made-for-training-by-an}}
+      </p>
+      <div class="features">
+        <div class="feature"><div class="ic">📱</div><div>
+          <h3>{{index.your-phone-with-or-without}}</h3>
+          <p>{{index.works-on-iphone-and-android}}</p>
+        </div></div>
+        <div class="feature"><div class="ic">⌚</div><div>
+          <h3>{{index.dedicated-apple-watch-app}}</h3>
+          <p>{{index.big-easy-to-read-numbers}}</p>
+        </div></div>
+        <div class="feature"><div class="ic">🎯</div><div>
+          <h3>{{index.adjustable-radius}}</h3>
+          <p>{{index.controls-are-punched-within-15}}</p>
+        </div></div>
+        <div class="feature"><div class="ic">🧭</div><div>
+          <h3>{{index.hidden-help}}</h3>
+          <p>{{index.stuck-one-swipe-shows-the}}</p>
+        </div></div>
+        <div class="feature"><div class="ic">⏱️</div><div>
+          <h3>{{index.splits-and-history}}</h3>
+          <p>{{index.every-run-is-saved-with}}</p>
+        </div></div>
+        <div class="feature"><div class="ic">❤️</div><div>
+          <h3>{{index.workout-recording-on-apple-watch}}</h3>
+          <p>{{index.on-apple-watch-if-enabled}}</p>
+        </div></div>
+      </div>
+    </div>
+  </section>
+
+  <section id="livelox" class="livelox">
+    <div class="wrap">
+      <a class="lx-logo" href="https://www.livelox.com" target="_blank" rel="noopener"><img src="{{$root}}assets/partners/livelox-logo-white.svg" width="119" height="36" alt="Livelox"></a>
+      <h2>{{index.re-run-your-races-straight}}</h2>
+      <p class="sub">
+        {{index.no-files-to-hunt-for}}
+      </p>
+      <div class="steps">
+        <div class="step">
+          <div class="num">1</div>
+          <h3>{{index.sign-in}}</h3>
+          <p>{{index.you-sign-in-on-livelox}}</p>
+        </div>
+        <div class="step">
+          <div class="num">2</div>
+          <h3>{{index.event-and-class}}</h3>
+          <p>{{index.search-for-the-event-and}}</p>
+        </div>
+        <div class="step">
+          <div class="num">3</div>
+          <h3>{{index.go}}</h3>
+          <p>{{index.the-course-downloads-with-all}}</p>
+        </div>
+      </div>
+      <p class="fine">{{index.only-public-course-data-is}}</p>
+    </div>
+  </section>
+
+  <section id="screens">
+    <div class="wrap">
+      <h2>{{index.what-it-looks-like}}</h2>
+      <p class="sub">{{index.screens-from-the-iphone-apple}}</p>
+      <h3 class="gal-h">iPhone &amp; Apple Watch</h3>
+      <div class="gallery">
+        <figure class="shot"><img src="{{$root}}assets/screens/iphone-livelox.png" width="646" height="1400" loading="lazy" alt="{{index.livelox-import-filters-and-event|e}}">
+          <figcaption>{{index.livelox-import-filters-and-event}}</figcaption></figure>
+        <figure class="shot"><img src="{{$root}}assets/screens/iphone-map.png" width="644" height="1400" loading="lazy" alt="{{index.course-on-the-map|e}}">
+          <figcaption>{{index.course-on-the-map}}</figcaption></figure>
+        <figure class="shot"><img src="{{$root}}assets/screens/iphone-run.png" width="644" height="1400" loading="lazy" alt="{{index.while-running|e}}">
+          <figcaption>{{index.while-running}}</figcaption></figure>
+        <figure class="shot"><img src="{{$root}}assets/screens/iphone-help.png" width="646" height="1400" loading="lazy" alt="{{index.help-direction-and-distance|e}}">
+          <figcaption>{{index.help-direction-and-distance}}</figcaption></figure>
+        <figure class="shot"><img src="{{$root}}assets/screens/iphone-lockscreen.jpg" width="646" height="1400" loading="lazy" alt="{{index.the-next-control-and-the|e}}">
+          <figcaption>{{index.on-the-lock-screen-too}}</figcaption></figure>
+        <figure class="shot watch"><img src="{{$root}}assets/screens/watch-run.png" width="422" height="398" loading="lazy" alt="{{index.running-on-apple-watch|e}}">
+          <figcaption>{{index.running-on-apple-watch}}</figcaption></figure>
+      </div>
+      <h3 class="gal-h">Android</h3>
+      <div class="gallery">
+        <figure class="shot"><img src="{{$root}}assets/screens/android-livelox.png" width="630" height="1400" loading="lazy" alt="{{index.livelox-import-filters-and-event|e}}">
+          <figcaption>{{index.livelox-import-filters-and-event}}</figcaption></figure>
+        <figure class="shot"><img src="{{$root}}assets/screens/android-map.png" width="630" height="1400" loading="lazy" alt="{{index.course-on-the-map|e}}">
+          <figcaption>{{index.course-on-the-map}}</figcaption></figure>
+        <figure class="shot"><img src="{{$root}}assets/screens/android-run.png" width="630" height="1400" loading="lazy" alt="{{index.while-running|e}}">
+          <figcaption>{{index.while-running}}</figcaption></figure>
+        <figure class="shot"><img src="{{$root}}assets/screens/android-arrow.png" width="630" height="1400" loading="lazy" alt="{{index.help-direction-and-distance|e}}">
+          <figcaption>{{index.help-direction-and-distance}}</figcaption></figure>
+      </div>
+    </div>
+  </section>
+
+  <section id="privacy" class="alt privacy">
+    <div class="wrap">
+      <h2>{{common.privacy}}</h2>
+      <p class="sub">
+        {{index.in-short-your-data-stays}}
+      </p>
+      <ul>{{index.no-account-no-server-courses}}</ul>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <p class="footnote" id="fn1">*
+      {{index.on-android-virtuo-sends-a}}
+    </p>
+  </div>
+  <div class="wrap row">
+    <span>© 2026 VirtuO · virtuo.run · <a href="privacy.html">{{common.privacy}}</a> · <a href="support.html">{{common.support}}</a></span>
+    <span>
+      {{index.iphone-and-apple-watch-are}}
+    </span>
+  </div>
+</footer>
+
+{{>picker.js}}
+</body>
+</html>

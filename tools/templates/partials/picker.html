@@ -1,0 +1,9 @@
+<div class="lp" id="lp">
+      <button class="lp-btn" id="lp-btn" type="button" aria-expanded="false" aria-controls="lp-list" aria-label="{{ui.language|e}}: {{$lang_name}} ({{$lang_code}})">
+        <svg class="flag" viewBox="0 0 30 20" aria-hidden="true" focusable="false"><use href="#flag-{{$lang}}"/></svg><span class="lp-code" aria-hidden="true">{{$lang_code}}</span><svg class="chev" viewBox="0 0 10 6" aria-hidden="true" focusable="false"><path d="M1 1l4 4 4-4" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </button>
+      <ul class="lp-list" id="lp-list">
+{{$lang_items}}
+      </ul>
+      {{>flags.svg}}
+    </div>

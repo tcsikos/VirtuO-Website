@@ -1,0 +1,36 @@
+<!doctype html>
+<html lang="{{$lang}}" class="no-js">
+<head>
+{{>head.html}}
+<style>
+{{>css-base.css}}
+{{>css-picker.css}}
+{{>css-doc.css}}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="wrap nav">
+    <a class="brand" href="index.html"><img src="{{$root}}assets/icon.png" alt="">VirtuO</a>
+    {{>picker.html}}
+  </div>
+</header>
+
+<main class="page wrap">
+<div class="doc">
+<h1>{{common.support}}</h1>
+<p class="sub">{{support.help-with-using-virtuo}}</p>
+<div class="contact">{{support.questions-or-a-bug-to}}<a href="mailto:support@virtuo.run">support@virtuo.run</a></div>
+<h2>{{support.frequently-asked-questions}}</h2>
+<details><summary>{{support.how-do-i-install-the}}</summary><p>{{support.the-iphone-apple-watch-version}}</p></details><details><summary>{{support.how-do-i-sign-in}}</summary><p>{{support.in-the-app-open-the}}</p></details><details><summary>{{support.how-do-i-export-iof}}</summary><p>{{support.purple-pen-use-the-xml}}</p></details><details><summary>{{support.how-do-i-import-a}}</summary><p>{{support.open-the-gpx-file-with}}</p></details><details><summary>{{support.does-it-work-in-my}}</summary><p>{{support.yes-if-you-set-location}}</p></details><details><summary>{{support.how-does-the-apple-watch}}</summary><p>{{support.send-the-course-to-the}}</p></details><details><summary>{{support.battery-tip}}</summary><p>{{support.continuous-gps-uses-battery-charge}}</p></details>
+<h2>{{common.privacy}}</h2>
+<p>{{support.see-the-privacy-policy}}</p>
+</div>
+</main>
+
+{{>footer-doc.html}}
+
+{{>picker.js}}
+</body>
+</html>

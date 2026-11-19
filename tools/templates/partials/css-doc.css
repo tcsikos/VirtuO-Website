@@ -1,0 +1,21 @@
+  /* belső oldalak */
+  main.page { padding: 40px 0 56px; }
+  .page h1 { font-size: clamp(28px, 4.4vw, 40px); line-height: 1.15; margin: 0 0 8px; letter-spacing: -0.02em; }
+  .page h2 { font-size: clamp(20px, 2.6vw, 24px); margin: 36px 0 8px; }
+  .page .doc { max-width: 760px; }
+  .page p, .page li { color: var(--ink); }
+  .page ul { padding-left: 22px; }
+  .page li { margin: 8px 0; }
+  .page .meta { color: var(--muted); font-size: 14.5px; margin: 0 0 24px; }
+  .page .sub { margin-bottom: 20px; }
+  .page details { background: var(--card); border: 1px solid var(--line); border-radius: 12px; padding: 0 18px; margin: 10px 0; }
+  .page summary { cursor: pointer; font-weight: 600; padding: 14px 0; min-height: 44px; }
+  .page details p { margin: 0 0 14px; color: var(--muted); }
+  .page details[open] summary { margin-bottom: 0; }
+  .contact { background: var(--soft); border: 1px solid var(--line); border-left: 4px solid var(--orange); padding: 16px 20px; border-radius: 0 12px 12px 0; margin: 20px 0; }
+  .contact a { font-weight: 700; word-break: break-word; }
+  footer { border-top: 1px solid var(--line); padding: 28px 0 40px; color: var(--muted); font-size: 14px; }
+  footer .row { display: flex; justify-content: space-between; gap: 8px 16px; flex-wrap: wrap; }
+  footer a { color: var(--link); }
+  footer .flinks a { display: inline-block; padding: 10px 6px; }
+  @media (max-width: 760px) { .nav { padding-top: 6px; padding-bottom: 6px; } }
