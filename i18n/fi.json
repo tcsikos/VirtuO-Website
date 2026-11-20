@@ -13,7 +13,7 @@
   "index.features": "Ominaisuudet",
   "index.get-the-app": "Hae sovellus",
   "index.orienteering-courses-without-the-flags": "Suunnistusratoja ilman lippuja.",
-  "index.download-the-course-from-livelox": "Lataa rata <a class=\"lx\" href=\"https://www.livelox.com\" target=\"_blank\" rel=\"noopener\"><strong>Liveloxista</strong></a>, käynnistä se VirtuO-sovelluksessa, ja puhelin tai kello kertoo, kun saavutat rastin. Toimii iPhonella, Apple Watchilla ja Androidilla, minkä tahansa älykellon kanssa<a class=\"fn\" href=\"#fn1\" aria-describedby=\"fn1\">*</a>.",
+  "index.download-the-course-from-livelox": "Tee oma rata tai lataa valmis rata <a class=\"lx\" href=\"https://www.livelox.com\" target=\"_blank\" rel=\"noopener\"><strong>Liveloxista</strong></a>. Käynnistä se VirtuO-sovelluksessa, ja puhelin tai kello kertoo, kun saavutat rastin. Toimii iPhonella, Apple Watchilla ja Androidilla, minkä tahansa älykellon kanssa<a class=\"fn\" href=\"#fn1\" aria-describedby=\"fn1\">*</a>.",
   "index.iphone-and-apple-watch-coming": "iPhone ja Apple Watch: tulossa pian App Storeen",
   "index.android-coming-soon-to-google": "Android: tulossa pian Google Playhin",
   "index.three-steps-and-you-are": "Kolme askelta, ja olet valmis juoksemaan.",
