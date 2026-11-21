@@ -100,6 +100,12 @@
   .nav .links a.cta { color: #000; background: var(--orange); border-radius: 999px; padding: 0 16px; font-weight: 600; }
   .nav .links a.cta:hover { color: #000; filter: brightness(1.08); }
   .nav .links a:hover { color: var(--ink); }
+  .nav .links a[aria-current="page"] { color: var(--ink); font-weight: 600; }
+  @media (max-width: 760px) {
+    .nav .links { order: 3; width: 100%; margin-left: 0; justify-content: space-between; }
+    .nav .links a.hide-m { display: none; }
+    .nav .links a { padding: 0 6px; }
+  }
   /* nyelvválasztó */
   .lp { position: relative; }
   .nav .brand + .lp { margin-left: auto; }
@@ -180,7 +186,7 @@
 <p class="sub">Help with using VirtuO.</p>
 <div class="contact">Questions or a bug to report? Write to<a href="mailto:support@virtuo.run">support@virtuo.run</a></div>
 <h2>Frequently asked questions</h2>
-<details><summary>How do I install the app?</summary><p>The iPhone / Apple Watch version is coming soon to the App Store and the Android version to Google Play. Until then it is in closed testing; you receive the invitation by e-mail.</p></details><details><summary>How do I sign in to Livelox?</summary><p>In the app open the Livelox import and choose sign in. Livelox's own page opens and you sign in there; VirtuO never sees your password. Then you can search for an event and pick your class.</p></details><details><summary>How do I export IOF XML 3.0 from OCAD or Purple Pen?</summary><p>Purple Pen: use the XML export of the courses and choose IOF XML 3.0. OCAD: choose IOF XML 3.0 in the course export. Menu names may differ between versions. Then open the file with VirtuO (Share / Open with).</p></details><details><summary>How do I import a GPX file?</summary><p>Open the .gpx file with VirtuO (Share / Open with), or use the file import in the app. The file stays on your device.<br><strong>Important:</strong> the GPX must contain separate points (waypoints or route points). The first point becomes the start, the last one the finish, and each point’s name becomes its control code. A recorded track from a run cannot be used as a course, because it has no separate points.</p></details><details><summary>Does it work in my pocket or with the screen locked?</summary><p>Yes, if you set location permission to "Always" (iPhone) or "Allow all the time" (Android). Then the app detects controls even with the screen locked.</p></details><details><summary>How does the Apple Watch app work?</summary><p>Send the course to the watch from the iPhone app; afterwards you can run without your phone. Saving the workout to Health is off by default and can be switched on in the settings. On other smartwatches, notifications tell you about each control.</p></details><details><summary>Battery tip</summary><p>Continuous GPS uses battery. Charge your phone before a long run and enable low power mode if needed; you do not need to keep the screen on, as the app works with it locked.</p></details>
+<p>You'll find frequently asked questions and answers on the <a href="faq.html">FAQ page</a>.</p>
 <h2>Privacy</h2>
 <p>See the <a href="privacy.html">privacy policy</a>.</p>
 </div>
@@ -189,7 +195,7 @@
 <footer>
   <div class="wrap row">
     <span>© 2026 VirtuO · virtuo.run</span>
-    <span class="flinks"><a href="index.html">Home</a> · <a href="privacy.html">Privacy</a> · <a href="support.html">Support</a></span>
+    <span class="flinks"><a href="index.html">Home</a> · <a href="privacy.html">Privacy</a> · <a href="faq.html">FAQ</a> · <a href="support.html">Support</a></span>
   </div>
 </footer>
 

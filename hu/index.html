@@ -77,6 +77,12 @@
   .nav .links a.cta { color: #000; background: var(--orange); border-radius: 999px; padding: 0 16px; font-weight: 600; }
   .nav .links a.cta:hover { color: #000; filter: brightness(1.08); }
   .nav .links a:hover { color: var(--ink); }
+  .nav .links a[aria-current="page"] { color: var(--ink); font-weight: 600; }
+  @media (max-width: 760px) {
+    .nav .links { order: 3; width: 100%; margin-left: 0; justify-content: space-between; }
+    .nav .links a.hide-m { display: none; }
+    .nav .links a { padding: 0 6px; }
+  }
   /* nyelvválasztó */
   .lp { position: relative; }
   .nav .brand + .lp { margin-left: auto; }
@@ -155,6 +161,12 @@
   .privacy li { position: relative; padding-left: 34px; margin: 10px 0; color: var(--muted); }
   .privacy li::before { content: "✓"; position: absolute; left: 0; top: 1px; width: 22px; height: 22px; border-radius: 50%; background: #6FD28F; color: #0B2E1A; font-weight: 700; font-size: 14px; line-height: 22px; text-align: center; }
   .privacy li strong { color: var(--ink); }
+  .faq-list { max-width: 760px; margin-top: 24px; }
+  .faq details { background: var(--card); border: 1px solid var(--line); border-radius: 12px; padding: 0 18px; margin: 10px 0; }
+  .faq summary { cursor: pointer; font-weight: 600; padding: 14px 0; min-height: 44px; }
+  .faq details p { margin: 0 0 14px; color: var(--muted); }
+  .faq-more { margin: 20px 0 0; }
+  .faq-more a { color: var(--link); font-weight: 600; display: inline-flex; align-items: center; min-height: 44px; }
 
   footer { border-top: 1px solid var(--line); padding: 28px 0 40px; color: var(--muted); font-size: 14px; }
   footer .row { display: flex; justify-content: space-between; gap: 16px; flex-wrap: wrap; }
@@ -162,9 +174,6 @@
   @media (max-width: 760px) {
     .steps, .features { grid-template-columns: 1fr; }
     .nav { padding-top: 6px; padding-bottom: 6px; }
-    .nav .links { order: 3; width: 100%; margin-left: 0; justify-content: space-between; }
-    .nav .links a.hide-m { display: none; }
-    .nav .links a { padding: 0 6px; }
     .hero { padding: 40px 20px 36px; }
     .scene { padding-bottom: 4px; }
     .scene img { border-radius: 14px 14px 0 0; }
@@ -181,6 +190,7 @@
       <a class="hide-m" href="#how">Hogyan működik?</a>
       <a class="hide-m" href="#features">Funkciók</a>
       <a href="#livelox">Livelox</a>
+      <a href="faq.html">GYIK</a>
       <a class="cta" href="#get">Letöltés</a>
     </div>
     <div class="lp" id="lp">
@@ -252,9 +262,9 @@
       <div class="steps">
         <div class="step">
           <div class="num">1</div>
-          <h3>Töltsd be a pályát</h3>
+          <h3>Készülj fel</h3>
           <p>
-            Töltsd le a pályát a Livelox-ról, importáld IOF XML (Purple Pen, OCAD) vagy pontokat tartalmazó GPX fájlból, vagy írd be a pontok koordinátáit kézzel.
+            Töltsd be a pályát Livelox-ról, fájlból, vagy írd be a pontok koordinátáit kézzel. Nyomtatott térképre is szükséged lesz, amivel tájékozódsz.
           </p>
         </div>
         <div class="step">
@@ -268,7 +278,7 @@
           <div class="num">3</div>
           <h3>Fogd meg a pontokat</h3>
           <p>
-            Ha a soron következő pont körzetébe érsz, az app rezeg, csipog, és rögzíti a részidőt.
+            Ha a soron következő pont körzetébe érsz, az app rezeg, csipog, és rögzíti a részidőt. Így helyettesíti a bójákat és az SI-dugókát.
           </p>
         </div>
       </div>
@@ -384,6 +394,19 @@
         <li><strong>Nincs reklám és nincs követés.</strong></li></ul>
     </div>
   </section>
+
+  <section id="faq" class="faq">
+    <div class="wrap">
+      <h2>Gyakori kérdések</h2>
+      <div class="faq-list">
+        <details><summary>Mutat tájfutótérképet az app?</summary><p>Nem. A tájékozódáshoz <strong>nyomtatott térkép kell</strong>: nyomtasd ki a pálya térképét, és vidd magaddal. Az app csak a pontokat jelzi. A pályanézet háttértérképe csak tájékoztató, tájfutásra nem alkalmas.</p></details>
+        <details><summary>Milyen telefonon és órán működik?</summary><p>iPhone-on és Android-telefonon önmagában működik. Ha van bármilyen okosórád, amely rezgéssel jelzi és megjeleníti a telefon értesítéseit, akkor ott is jelez. Emellett Apple Watch-ra is van külön app, amihez nem kell a telefont magaddal vinned.</p></details>
+        <details><summary>Kell hozzá fiók vagy internet?</summary><p>VirtuO-fiók nem kell. Internet csak a pálya Livelox-ról letöltéséhez kell. A pontfogás futás közben internet nélkül is működik.</p></details>
+        <details><summary>Miért kell belépni a Livelox-ba?</summary><p>A Livelox csak bejelentkezett felhasználónak engedi letölteni a pályákat más appokba. Elég hozzá egy ingyenes Livelox-fiók. A belépés a Livelox saját oldalán történik, a jelszavadat a VirtuO nem látja.</p></details>
+      </div>
+      <p class="faq-more"><a href="faq.html">Összes kérdés →</a></p>
+    </div>
+  </section>
 </main>
 
 <footer>
@@ -393,7 +416,7 @@
     </p>
   </div>
   <div class="wrap row">
-    <span>© 2026 VirtuO · virtuo.run · <a href="privacy.html">Adatvédelem</a> · <a href="support.html">Támogatás</a></span>
+    <span>© 2026 VirtuO · virtuo.run · <a href="faq.html">GYIK</a> · <a href="privacy.html">Adatvédelem</a> · <a href="support.html">Támogatás</a></span>
     <span>
       Az iPhone és az Apple Watch az Apple Inc., az Android és a Google Play a Google LLC védjegye. A Livelox, az OCAD és a Purple Pen a jogtulajdonosaik védjegyei, illetve márkanevei. Az IOF XML a Nemzetközi Tájfutó Szövetség (IOF) adatformátuma. A VirtuO független alkalmazás, nem ezeknek a cégeknek a terméke. A Livelox logót a Livelox engedélyével használjuk.
     </span>

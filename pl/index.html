@@ -77,6 +77,12 @@
   .nav .links a.cta { color: #000; background: var(--orange); border-radius: 999px; padding: 0 16px; font-weight: 600; }
   .nav .links a.cta:hover { color: #000; filter: brightness(1.08); }
   .nav .links a:hover { color: var(--ink); }
+  .nav .links a[aria-current="page"] { color: var(--ink); font-weight: 600; }
+  @media (max-width: 760px) {
+    .nav .links { order: 3; width: 100%; margin-left: 0; justify-content: space-between; }
+    .nav .links a.hide-m { display: none; }
+    .nav .links a { padding: 0 6px; }
+  }
   /* nyelvválasztó */
   .lp { position: relative; }
   .nav .brand + .lp { margin-left: auto; }
@@ -155,6 +161,12 @@
   .privacy li { position: relative; padding-left: 34px; margin: 10px 0; color: var(--muted); }
   .privacy li::before { content: "✓"; position: absolute; left: 0; top: 1px; width: 22px; height: 22px; border-radius: 50%; background: #6FD28F; color: #0B2E1A; font-weight: 700; font-size: 14px; line-height: 22px; text-align: center; }
   .privacy li strong { color: var(--ink); }
+  .faq-list { max-width: 760px; margin-top: 24px; }
+  .faq details { background: var(--card); border: 1px solid var(--line); border-radius: 12px; padding: 0 18px; margin: 10px 0; }
+  .faq summary { cursor: pointer; font-weight: 600; padding: 14px 0; min-height: 44px; }
+  .faq details p { margin: 0 0 14px; color: var(--muted); }
+  .faq-more { margin: 20px 0 0; }
+  .faq-more a { color: var(--link); font-weight: 600; display: inline-flex; align-items: center; min-height: 44px; }
 
   footer { border-top: 1px solid var(--line); padding: 28px 0 40px; color: var(--muted); font-size: 14px; }
   footer .row { display: flex; justify-content: space-between; gap: 16px; flex-wrap: wrap; }
@@ -162,9 +174,6 @@
   @media (max-width: 760px) {
     .steps, .features { grid-template-columns: 1fr; }
     .nav { padding-top: 6px; padding-bottom: 6px; }
-    .nav .links { order: 3; width: 100%; margin-left: 0; justify-content: space-between; }
-    .nav .links a.hide-m { display: none; }
-    .nav .links a { padding: 0 6px; }
     .hero { padding: 40px 20px 36px; }
     .scene { padding-bottom: 4px; }
     .scene img { border-radius: 14px 14px 0 0; }
@@ -181,6 +190,7 @@
       <a class="hide-m" href="#how">Jak to działa</a>
       <a class="hide-m" href="#features">Funkcje</a>
       <a href="#livelox">Livelox</a>
+      <a href="faq.html">FAQ</a>
       <a class="cta" href="#get">Pobierz aplikację</a>
     </div>
     <div class="lp" id="lp">
@@ -252,9 +262,9 @@
       <div class="steps">
         <div class="step">
           <div class="num">1</div>
-          <h3>Wczytaj trasę</h3>
+          <h3>Przygotuj się</h3>
           <p>
-            Pobierz trasę z Livelox, zaimportuj plik IOF XML (Purple Pen, OCAD) lub GPX z punktami, albo wpisz współrzędne punktów ręcznie.
+            Wczytaj trasę z Livelox lub z pliku albo wpisz współrzędne punktów ręcznie. Potrzebna będzie też wydrukowana mapa, według której się orientujesz.
           </p>
         </div>
         <div class="step">
@@ -268,7 +278,7 @@
           <div class="num">3</div>
           <h3>Podbijaj punkty</h3>
           <p>
-            Gdy dotrzesz do następnego punktu, aplikacja wibruje, piszczy i zapisuje Twój międzyczas.
+            Gdy znajdziesz się w zasięgu następnego punktu, aplikacja wibruje, piszczy i zapisuje Twój międzyczas. Zastępuje w ten sposób lampiony i chip SI.
           </p>
         </div>
       </div>
@@ -384,6 +394,19 @@
         <li><strong>Bez reklam i bez śledzenia.</strong></li></ul>
     </div>
   </section>
+
+  <section id="faq" class="faq">
+    <div class="wrap">
+      <h2>Najczęściej zadawane pytania</h2>
+      <div class="faq-list">
+        <details><summary>Czy aplikacja pokazuje mapę do orientacji?</summary><p>Nie. Do orientacji <strong>potrzebna jest mapa papierowa</strong>: wydrukuj mapę trasy i zabierz ją ze sobą. Aplikacja pokazuje tylko punkty. Mapa w tle w widoku trasy ma wyłącznie charakter informacyjny i nie nadaje się do orientacji.</p></details>
+        <details><summary>Na jakich telefonach i zegarkach działa?</summary><p>Na iPhone i telefonach z Androidem działa samodzielnie. Jeśli masz zegarek smart, który wyświetla powiadomienia z telefonu i wibruje przy nich, sygnalizuje punkt także tam. Jest też osobna aplikacja na Apple Watch, dzięki której nie musisz zabierać telefonu.</p></details>
+        <details><summary>Czy potrzebne jest konto lub internet?</summary><p>Konto VirtuO nie jest potrzebne. Internet jest potrzebny tylko do pobrania trasy z Livelox. Podbijanie punktów podczas biegu działa bez internetu.</p></details>
+        <details><summary>Dlaczego muszę zalogować się do Livelox?</summary><p>Livelox pozwala pobierać trasy do innych aplikacji tylko zalogowanym użytkownikom. Wystarczy darmowe konto Livelox. Logowanie odbywa się na własnej stronie Livelox; VirtuO nie widzi Twojego hasła.</p></details>
+      </div>
+      <p class="faq-more"><a href="faq.html">Wszystkie pytania →</a></p>
+    </div>
+  </section>
 </main>
 
 <footer>
@@ -393,7 +416,7 @@
     </p>
   </div>
   <div class="wrap row">
-    <span>© 2026 VirtuO · virtuo.run · <a href="privacy.html">Prywatność</a> · <a href="support.html">Pomoc techniczna</a></span>
+    <span>© 2026 VirtuO · virtuo.run · <a href="faq.html">FAQ</a> · <a href="privacy.html">Prywatność</a> · <a href="support.html">Pomoc techniczna</a></span>
     <span>
       iPhone i Apple Watch są znakami towarowymi Apple Inc.; Android i Google Play są znakami towarowymi Google LLC. Livelox, OCAD i Purple Pen to znaki towarowe lub nazwy handlowe ich właścicieli. IOF XML to format danych Międzynarodowej Federacji Orientacji Sportowej (IOF). VirtuO to niezależna aplikacja i nie jest produktem tych firm. Logo Livelox jest używane za zgodą Livelox.
     </span>

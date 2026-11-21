@@ -62,6 +62,12 @@
   .privacy li { position: relative; padding-left: 34px; margin: 10px 0; color: var(--muted); }
   .privacy li::before { content: "✓"; position: absolute; left: 0; top: 1px; width: 22px; height: 22px; border-radius: 50%; background: #6FD28F; color: #0B2E1A; font-weight: 700; font-size: 14px; line-height: 22px; text-align: center; }
   .privacy li strong { color: var(--ink); }
+  .faq-list { max-width: 760px; margin-top: 24px; }
+  .faq details { background: var(--card); border: 1px solid var(--line); border-radius: 12px; padding: 0 18px; margin: 10px 0; }
+  .faq summary { cursor: pointer; font-weight: 600; padding: 14px 0; min-height: 44px; }
+  .faq details p { margin: 0 0 14px; color: var(--muted); }
+  .faq-more { margin: 20px 0 0; }
+  .faq-more a { color: var(--link); font-weight: 600; display: inline-flex; align-items: center; min-height: 44px; }
 
   footer { border-top: 1px solid var(--line); padding: 28px 0 40px; color: var(--muted); font-size: 14px; }
   footer .row { display: flex; justify-content: space-between; gap: 16px; flex-wrap: wrap; }
@@ -69,9 +75,6 @@
   @media (max-width: 760px) {
     .steps, .features { grid-template-columns: 1fr; }
     .nav { padding-top: 6px; padding-bottom: 6px; }
-    .nav .links { order: 3; width: 100%; margin-left: 0; justify-content: space-between; }
-    .nav .links a.hide-m { display: none; }
-    .nav .links a { padding: 0 6px; }
     .hero { padding: 40px 20px 36px; }
     .scene { padding-bottom: 4px; }
     .scene img { border-radius: 14px 14px 0 0; }

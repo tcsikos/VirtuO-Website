@@ -77,6 +77,12 @@
   .nav .links a.cta { color: #000; background: var(--orange); border-radius: 999px; padding: 0 16px; font-weight: 600; }
   .nav .links a.cta:hover { color: #000; filter: brightness(1.08); }
   .nav .links a:hover { color: var(--ink); }
+  .nav .links a[aria-current="page"] { color: var(--ink); font-weight: 600; }
+  @media (max-width: 760px) {
+    .nav .links { order: 3; width: 100%; margin-left: 0; justify-content: space-between; }
+    .nav .links a.hide-m { display: none; }
+    .nav .links a { padding: 0 6px; }
+  }
   /* nyelvválasztó */
   .lp { position: relative; }
   .nav .brand + .lp { margin-left: auto; }
@@ -157,7 +163,7 @@
 <p class="sub">Segítség a VirtuO használatához.</p>
 <div class="contact">Kérdésed vagy hibabejelentésed van? Írj ide:<a href="mailto:support@virtuo.run">support@virtuo.run</a></div>
 <h2>Gyakori kérdések</h2>
-<details><summary>Hogyan telepítem az appot?</summary><p>Az iPhone-/Apple Watch-változat hamarosan az App Store-ban, az Android-változat a Google Play-en lesz elérhető. Addig zárt tesztelés zajlik; a meghívót e-mailben kapod.</p></details><details><summary>Hogyan jelentkezem be a Livelox-ba?</summary><p>Az appban nyisd meg a Livelox-importot, és válaszd a bejelentkezést. A Livelox saját oldala nyílik meg, ott lépsz be; a jelszavadat a VirtuO nem látja. Utána kereshetsz versenyre, és kiválaszthatod a kategóriád.</p></details><details><summary>Hogyan exportálok IOF XML 3.0 fájlt OCAD-ból vagy Purple Pen-ből?</summary><p>Purple Pen: a pályák exportálásánál (XML-export) válaszd az IOF XML 3.0 formátumot. OCAD: a pályák exportálásakor válaszd az IOF XML 3.0 formátumot. A menük nevei verziónként eltérhetnek. A kapott fájlt nyisd meg a VirtuO-val (Megosztás / Megnyitás ezzel).</p></details><details><summary>Hogyan importálok GPX fájlt?</summary><p>Nyisd meg a .gpx fájlt a VirtuO-val (Megosztás / Megnyitás ezzel), vagy válaszd a fájl-importot az appban. A fájl az eszközön marad.<br><strong>Fontos:</strong> a GPX-ben külön pontoknak kell lenniük (útpontok vagy útvonalpontok). Az első pont lesz a rajt, az utolsó a cél, a pont neve a kódja. Egy futás során felvett nyomvonal (track) nem használható pályaként, mert nincsenek benne külön pontok.</p></details><details><summary>Zsebben vagy lezárt képernyővel is működik?</summary><p>Igen, ha a helyengedélyt „Mindig” (iPhone), illetve „Mindig engedélyezett” (Android) értékre állítod. Így az app lezárt képernyővel is érzékeli a pontokat.</p></details><details><summary>Hogyan működik az Apple Watch-app?</summary><p>Küldd át a pályát az órára az iPhone-appból; utána telefon nélkül is futhatsz vele. Az edzés Egészség appba mentése alapból ki van kapcsolva, a beállításokban kapcsolhatod be. Más okosórán az értesítések jelzik a pontfogást.</p></details><details><summary>Tipp az akkumulátorhoz</summary><p>A folyamatos GPS fogyasztja az akkut. Hosszabb futás előtt töltsd fel a telefont, és kapcsold be a takarékos módot; a kijelzőt nem kell bekapcsolva tartani, az app lezárt képernyővel is működik.</p></details>
+<p>A gyakori kérdéseket és válaszokat a <a href="faq.html">GYIK oldalon</a> találod.</p>
 <h2>Adatvédelem</h2>
 <p>Lásd az <a href="privacy.html">adatvédelmi tájékoztatót</a>.</p>
 </div>
@@ -166,7 +172,7 @@
 <footer>
   <div class="wrap row">
     <span>© 2026 VirtuO · virtuo.run</span>
-    <span class="flinks"><a href="index.html">Főoldal</a> · <a href="privacy.html">Adatvédelem</a> · <a href="support.html">Támogatás</a></span>
+    <span class="flinks"><a href="index.html">Főoldal</a> · <a href="privacy.html">Adatvédelem</a> · <a href="faq.html">GYIK</a> · <a href="support.html">Támogatás</a></span>
   </div>
 </footer>
 

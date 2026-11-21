@@ -1,0 +1,69 @@
+<!doctype html>
+<html lang="{{$lang}}" class="no-js">
+<head>
+{{>head.html}}
+<style>
+{{>css-base.css}}
+{{>css-picker.css}}
+{{>css-doc.css}}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="wrap nav">
+    <a class="brand" href="index.html"><img src="{{$root}}assets/icon.png" alt="">VirtuO</a>
+    <div class="links">
+      <a class="hide-m" href="index.html#how">{{index.how-it-works}}</a>
+      <a class="hide-m" href="index.html#features">{{index.features}}</a>
+      <a href="index.html#livelox">Livelox</a>
+      <a href="faq.html" aria-current="page">{{common.faq}}</a>
+      <a class="cta" href="index.html#get">{{index.get-the-app}}</a>
+    </div>
+    {{>picker.html}}
+  </div>
+</header>
+
+<main class="page wrap">
+<div class="doc">
+<h1>{{faq.title}}</h1>
+<p class="sub">{{faq.sub}}</p>
+
+<h2>{{faq.h-basics}}</h2>
+<details id="what"><summary>{{faq.q-what}}</summary><p>{{faq.a-what}}</p></details>
+<details id="map"><summary>{{faq.q-map}}</summary><p>{{faq.a-map}}</p></details>
+<details id="account"><summary>{{faq.q-account}}</summary><p>{{faq.a-account}}</p></details>
+<details id="devices"><summary>{{faq.q-devices}}</summary><p>{{faq.a-devices}}</p></details>
+<details id="install"><summary>{{faq.q-install}}</summary><p>{{faq.a-install}}</p></details>
+
+<h2>{{faq.h-courses}}</h2>
+<details id="sources"><summary>{{faq.q-sources}}</summary><p>{{faq.a-sources}}</p></details>
+<details id="livelox-login"><summary>{{faq.q-livelox-login}}</summary><p>{{faq.a-livelox-login}}</p></details>
+<details id="livelox-how"><summary>{{support.how-do-i-sign-in}}</summary><p>{{support.in-the-app-open-the}}</p></details>
+<details id="livelox-nocourse"><summary>{{faq.q-livelox-nocourse}}</summary><p>{{faq.a-livelox-nocourse}}</p></details>
+<details id="iofxml"><summary>{{support.how-do-i-export-iof}}</summary><p>{{support.purple-pen-use-the-xml}}</p></details>
+<details id="gpx"><summary>{{support.how-do-i-import-a}}</summary><p>{{support.open-the-gpx-file-with}}</p></details>
+<details id="own"><summary>{{faq.q-own}}</summary><p>{{faq.a-own}}</p></details>
+
+<h2>{{faq.h-running}}</h2>
+<details id="radius"><summary>{{faq.q-radius}}</summary><p>{{faq.a-radius}}</p></details>
+<details id="missed"><summary>{{faq.q-missed}}</summary><p>{{faq.a-missed}}</p></details>
+<details id="accuracy"><summary>{{faq.q-accuracy}}</summary><p>{{faq.a-accuracy}}</p></details>
+<details id="pocket"><summary>{{support.does-it-work-in-my}}</summary><p>{{support.yes-if-you-set-location}}</p></details>
+<details id="battery"><summary>{{support.battery-tip}}</summary><p>{{support.continuous-gps-uses-battery-charge}}</p></details>
+
+<h2>{{faq.h-watches}}</h2>
+<details id="apple-watch"><summary>{{support.how-does-the-apple-watch}}</summary><p>{{faq.a-apple-watch}}</p></details>
+<details id="android-watch"><summary>{{faq.q-android-watch}}</summary><p>{{faq.a-android-watch}}</p></details>
+
+<h2>{{faq.h-privacy}}</h2>
+<details id="data"><summary>{{faq.q-data}}</summary><p>{{faq.a-data}}</p></details>
+<details id="contact"><summary>{{faq.q-contact}}</summary><p>{{faq.a-contact}}</p></details>
+</div>
+</main>
+
+{{>footer-doc.html}}
+
+{{>picker.js}}
+</body>
+</html>

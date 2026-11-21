@@ -77,6 +77,12 @@
   .nav .links a.cta { color: #000; background: var(--orange); border-radius: 999px; padding: 0 16px; font-weight: 600; }
   .nav .links a.cta:hover { color: #000; filter: brightness(1.08); }
   .nav .links a:hover { color: var(--ink); }
+  .nav .links a[aria-current="page"] { color: var(--ink); font-weight: 600; }
+  @media (max-width: 760px) {
+    .nav .links { order: 3; width: 100%; margin-left: 0; justify-content: space-between; }
+    .nav .links a.hide-m { display: none; }
+    .nav .links a { padding: 0 6px; }
+  }
   /* nyelvválasztó */
   .lp { position: relative; }
   .nav .brand + .lp { margin-left: auto; }
@@ -157,7 +163,7 @@
 <p class="sub">Apua VirtuO:n käyttöön.</p>
 <div class="contact">Kysymys tai virhe, jonka haluat ilmoittaa? Kirjoita osoitteeseen<a href="mailto:support@virtuo.run">support@virtuo.run</a></div>
 <h2>Usein kysytyt kysymykset</h2>
-<details><summary>Miten asennan sovelluksen?</summary><p>iPhone- ja Apple Watch -versio tulee pian App Storeen, ja Android-versio Google Playhin. Siihen asti sovellus on suljetussa testauksessa; kutsun saat sähköpostitse.</p></details><details><summary>Miten kirjaudun Liveloxiin?</summary><p>Avaa sovelluksessa Livelox-tuonti ja valitse kirjautuminen. Liveloxin oma sivu avautuu, kirjaudu siellä; VirtuO ei näe salasanaasi. Sen jälkeen voit hakea tapahtumaa ja valita sarjasi.</p></details><details><summary>Miten vien IOF XML 3.0 -tiedoston OCADista tai Purple Penistä?</summary><p>Purple Pen: käytä ratojen XML-vientiä ja valitse IOF XML 3.0. OCAD: valitse IOF XML 3.0 ratojen viennissä. Valikkojen nimet voivat vaihdella versioittain. Avaa tiedosto sitten VirtuO:lla (Jaa / Avaa sovelluksella).</p></details><details><summary>Miten tuon GPX-tiedoston?</summary><p>Avaa .gpx-tiedosto VirtuO:lla (Jaa / Avaa sovelluksella) tai käytä sovelluksen tiedostotuontia. Tiedosto jää laitteellesi.<br><strong>Tärkeää:</strong> GPX:ssä on oltava erillisiä pisteitä (reittipisteitä tai wp-pisteitä). Ensimmäinen piste on lähtö, viimeinen maali, ja jokaisen pisteen nimi on sen rastikoodi. Suorituksen aikana tallennettua jälkeä (track) ei voi käyttää rataan, koska siinä ei ole erillisiä pisteitä.</p></details><details><summary>Toimiiko taskussa tai lukitulla näytöllä?</summary><p>Kyllä, jos asetat sijaintiluvaksi „Aina“ (iPhone) tai „Salli koko ajan“ (Android). Silloin sovellus tunnistaa rastit myös lukitulla näytöllä.</p></details><details><summary>Miten Apple Watch -sovellus toimii?</summary><p>Lähetä rata kelloon iPhone-sovelluksesta; sen jälkeen voit juosta ilman puhelinta. Harjoituksen tallentaminen Terveys-sovellukseen on oletuksena pois päältä, ja sen voi ottaa käyttöön asetuksissa. Muissa älykelloissa ilmoitukset kertovat jokaisesta rastista.</p></details><details><summary>Vinkki akulle</summary><p>Jatkuva GPS kuluttaa akkua. Lataa puhelin ennen pitkää suoritusta ja ota tarvittaessa virransäästötila käyttöön; näyttöä ei tarvitse pitää päällä, sillä sovellus toimii lukitulla näytöllä.</p></details>
+<p>Usein kysytyt kysymykset ja vastaukset löydät <a href="faq.html">UKK-sivulta</a>.</p>
 <h2>Tietosuoja</h2>
 <p>Katso <a href="privacy.html">tietosuojaseloste</a>.</p>
 </div>
@@ -166,7 +172,7 @@
 <footer>
   <div class="wrap row">
     <span>© 2026 VirtuO · virtuo.run</span>
-    <span class="flinks"><a href="index.html">Etusivu</a> · <a href="privacy.html">Tietosuoja</a> · <a href="support.html">Tuki</a></span>
+    <span class="flinks"><a href="index.html">Etusivu</a> · <a href="privacy.html">Tietosuoja</a> · <a href="faq.html">UKK</a> · <a href="support.html">Tuki</a></span>
   </div>
 </footer>
 

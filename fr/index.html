@@ -77,6 +77,12 @@
   .nav .links a.cta { color: #000; background: var(--orange); border-radius: 999px; padding: 0 16px; font-weight: 600; }
   .nav .links a.cta:hover { color: #000; filter: brightness(1.08); }
   .nav .links a:hover { color: var(--ink); }
+  .nav .links a[aria-current="page"] { color: var(--ink); font-weight: 600; }
+  @media (max-width: 760px) {
+    .nav .links { order: 3; width: 100%; margin-left: 0; justify-content: space-between; }
+    .nav .links a.hide-m { display: none; }
+    .nav .links a { padding: 0 6px; }
+  }
   /* nyelvválasztó */
   .lp { position: relative; }
   .nav .brand + .lp { margin-left: auto; }
@@ -155,6 +161,12 @@
   .privacy li { position: relative; padding-left: 34px; margin: 10px 0; color: var(--muted); }
   .privacy li::before { content: "✓"; position: absolute; left: 0; top: 1px; width: 22px; height: 22px; border-radius: 50%; background: #6FD28F; color: #0B2E1A; font-weight: 700; font-size: 14px; line-height: 22px; text-align: center; }
   .privacy li strong { color: var(--ink); }
+  .faq-list { max-width: 760px; margin-top: 24px; }
+  .faq details { background: var(--card); border: 1px solid var(--line); border-radius: 12px; padding: 0 18px; margin: 10px 0; }
+  .faq summary { cursor: pointer; font-weight: 600; padding: 14px 0; min-height: 44px; }
+  .faq details p { margin: 0 0 14px; color: var(--muted); }
+  .faq-more { margin: 20px 0 0; }
+  .faq-more a { color: var(--link); font-weight: 600; display: inline-flex; align-items: center; min-height: 44px; }
 
   footer { border-top: 1px solid var(--line); padding: 28px 0 40px; color: var(--muted); font-size: 14px; }
   footer .row { display: flex; justify-content: space-between; gap: 16px; flex-wrap: wrap; }
@@ -162,9 +174,6 @@
   @media (max-width: 760px) {
     .steps, .features { grid-template-columns: 1fr; }
     .nav { padding-top: 6px; padding-bottom: 6px; }
-    .nav .links { order: 3; width: 100%; margin-left: 0; justify-content: space-between; }
-    .nav .links a.hide-m { display: none; }
-    .nav .links a { padding: 0 6px; }
     .hero { padding: 40px 20px 36px; }
     .scene { padding-bottom: 4px; }
     .scene img { border-radius: 14px 14px 0 0; }
@@ -181,6 +190,7 @@
       <a class="hide-m" href="#how">Comment ça marche</a>
       <a class="hide-m" href="#features">Fonctions</a>
       <a href="#livelox">Livelox</a>
+      <a href="faq.html">FAQ</a>
       <a class="cta" href="#get">Obtenir l'appli</a>
     </div>
     <div class="lp" id="lp">
@@ -252,9 +262,9 @@
       <div class="steps">
         <div class="step">
           <div class="num">1</div>
-          <h3>Charge un parcours</h3>
+          <h3>Prépare-toi</h3>
           <p>
-            Télécharge le parcours depuis Livelox, importe un fichier IOF XML (Purple Pen, OCAD) ou un fichier GPX avec des points, ou saisis les coordonnées des postes à la main.
+            Charge le parcours depuis Livelox ou un fichier, ou saisis les coordonnées des postes à la main. Il te faudra aussi une carte imprimée pour t'orienter.
           </p>
         </div>
         <div class="step">
@@ -268,7 +278,7 @@
           <div class="num">3</div>
           <h3>Poinçonne les postes</h3>
           <p>
-            Quand tu atteins le poste suivant, l'appli vibre, bippe et enregistre ton temps intermédiaire.
+            Quand tu entres dans la zone du poste suivant, l'appli vibre, bippe et enregistre ton temps intermédiaire. Elle remplace ainsi les balises et la puce SI.
           </p>
         </div>
       </div>
@@ -384,6 +394,19 @@
         <li><strong>Pas de publicité et pas de suivi.</strong></li></ul>
     </div>
   </section>
+
+  <section id="faq" class="faq">
+    <div class="wrap">
+      <h2>Questions fréquentes</h2>
+      <div class="faq-list">
+        <details><summary>L'appli affiche-t-elle une carte d'orientation ?</summary><p>Non. Pour t'orienter, il te faut une <strong>carte imprimée</strong> : imprime la carte du parcours et emporte-la avec toi. L'appli ne signale que les postes. Le fond de carte de la vue du parcours est donné à titre indicatif uniquement et ne convient pas à l'orientation.</p></details>
+        <details><summary>Sur quels téléphones et montres fonctionne-t-elle ?</summary><p>Elle fonctionne toute seule sur iPhone et sur les téléphones Android. Si tu as une montre connectée qui affiche les notifications du téléphone et vibre pour elles, elle signale aussi le poste. Il existe aussi une appli dédiée à l'Apple Watch, avec laquelle tu n'as pas besoin d'emporter ton téléphone.</p></details>
+        <details><summary>Faut-il un compte ou une connexion internet ?</summary><p>Tu n'as pas besoin de compte VirtuO. Internet n'est nécessaire que pour télécharger un parcours depuis Livelox. Le poinçonnage pendant la course fonctionne sans internet.</p></details>
+        <details><summary>Pourquoi faut-il se connecter à Livelox ?</summary><p>Livelox n'autorise le téléchargement de parcours vers d'autres applis qu'aux utilisateurs connectés. Un compte Livelox gratuit suffit. La connexion se fait sur le site de Livelox lui-même : VirtuO ne voit jamais ton mot de passe.</p></details>
+      </div>
+      <p class="faq-more"><a href="faq.html">Toutes les questions →</a></p>
+    </div>
+  </section>
 </main>
 
 <footer>
@@ -393,7 +416,7 @@
     </p>
   </div>
   <div class="wrap row">
-    <span>© 2026 VirtuO · virtuo.run · <a href="privacy.html">Confidentialité</a> · <a href="support.html">Support</a></span>
+    <span>© 2026 VirtuO · virtuo.run · <a href="faq.html">FAQ</a> · <a href="privacy.html">Confidentialité</a> · <a href="support.html">Support</a></span>
     <span>
       iPhone et Apple Watch sont des marques d'Apple Inc. ; Android et Google Play sont des marques de Google LLC. Livelox, OCAD et Purple Pen sont des marques ou des noms commerciaux de leurs propriétaires respectifs. IOF XML est un format de données de la Fédération internationale de course d'orientation (IOF). VirtuO est une appli indépendante et n'est pas un produit de ces entreprises. Le logo Livelox est utilisé avec l'autorisation de Livelox.
     </span>

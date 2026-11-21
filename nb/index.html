@@ -77,6 +77,12 @@
   .nav .links a.cta { color: #000; background: var(--orange); border-radius: 999px; padding: 0 16px; font-weight: 600; }
   .nav .links a.cta:hover { color: #000; filter: brightness(1.08); }
   .nav .links a:hover { color: var(--ink); }
+  .nav .links a[aria-current="page"] { color: var(--ink); font-weight: 600; }
+  @media (max-width: 760px) {
+    .nav .links { order: 3; width: 100%; margin-left: 0; justify-content: space-between; }
+    .nav .links a.hide-m { display: none; }
+    .nav .links a { padding: 0 6px; }
+  }
   /* nyelvválasztó */
   .lp { position: relative; }
   .nav .brand + .lp { margin-left: auto; }
@@ -155,6 +161,12 @@
   .privacy li { position: relative; padding-left: 34px; margin: 10px 0; color: var(--muted); }
   .privacy li::before { content: "✓"; position: absolute; left: 0; top: 1px; width: 22px; height: 22px; border-radius: 50%; background: #6FD28F; color: #0B2E1A; font-weight: 700; font-size: 14px; line-height: 22px; text-align: center; }
   .privacy li strong { color: var(--ink); }
+  .faq-list { max-width: 760px; margin-top: 24px; }
+  .faq details { background: var(--card); border: 1px solid var(--line); border-radius: 12px; padding: 0 18px; margin: 10px 0; }
+  .faq summary { cursor: pointer; font-weight: 600; padding: 14px 0; min-height: 44px; }
+  .faq details p { margin: 0 0 14px; color: var(--muted); }
+  .faq-more { margin: 20px 0 0; }
+  .faq-more a { color: var(--link); font-weight: 600; display: inline-flex; align-items: center; min-height: 44px; }
 
   footer { border-top: 1px solid var(--line); padding: 28px 0 40px; color: var(--muted); font-size: 14px; }
   footer .row { display: flex; justify-content: space-between; gap: 16px; flex-wrap: wrap; }
@@ -162,9 +174,6 @@
   @media (max-width: 760px) {
     .steps, .features { grid-template-columns: 1fr; }
     .nav { padding-top: 6px; padding-bottom: 6px; }
-    .nav .links { order: 3; width: 100%; margin-left: 0; justify-content: space-between; }
-    .nav .links a.hide-m { display: none; }
-    .nav .links a { padding: 0 6px; }
     .hero { padding: 40px 20px 36px; }
     .scene { padding-bottom: 4px; }
     .scene img { border-radius: 14px 14px 0 0; }
@@ -181,6 +190,7 @@
       <a class="hide-m" href="#how">Slik fungerer det</a>
       <a class="hide-m" href="#features">Funksjoner</a>
       <a href="#livelox">Livelox</a>
+      <a href="faq.html">FAQ</a>
       <a class="cta" href="#get">Få appen</a>
     </div>
     <div class="lp" id="lp">
@@ -252,9 +262,9 @@
       <div class="steps">
         <div class="step">
           <div class="num">1</div>
-          <h3>Last inn en løype</h3>
+          <h3>Gjør deg klar</h3>
           <p>
-            Last ned løypa fra Livelox, importer en IOF XML-fil (Purple Pen, OCAD) eller en GPX-fil med punkter, eller skriv inn postkoordinatene for hånd.
+            Last inn løypa fra Livelox eller fra en fil, eller skriv inn postkoordinatene for hånd. Du trenger også et trykt kart å orientere etter.
           </p>
         </div>
         <div class="step">
@@ -268,7 +278,7 @@
           <div class="num">3</div>
           <h3>Stemple postene</h3>
           <p>
-            Når du når neste post, vibrerer appen, piper og registrerer mellomtiden din.
+            Når du kommer innenfor radiusen til neste post, vibrerer appen, piper og registrerer mellomtiden din. Slik erstatter den både postflaggene og SI-brikken.
           </p>
         </div>
       </div>
@@ -384,6 +394,19 @@
         <li><strong>Ingen annonser og ingen sporing.</strong></li></ul>
     </div>
   </section>
+
+  <section id="faq" class="faq">
+    <div class="wrap">
+      <h2>Ofte stilte spørsmål</h2>
+      <div class="faq-list">
+        <details><summary>Viser appen et orienteringskart?</summary><p>Nei. For å orientere deg <strong>trenger du et trykt kart</strong>: skriv ut kartet over løypa og ta det med deg. Appen viser bare postene. Bakgrunnskartet i løypevisningen er bare veiledende og egner seg ikke til orientering.</p></details>
+        <details><summary>Hvilke telefoner og klokker fungerer den med?</summary><p>Den fungerer på egen hånd på iPhone og Android-telefoner. Hvis du har en smartklokke som viser telefonens varsler og vibrerer for dem, signaliserer den også der. Det finnes også en egen app for Apple Watch, og med den trenger du ikke ha telefonen med deg.</p></details>
+        <details><summary>Trenger jeg konto eller internett?</summary><p>Du trenger ikke VirtuO-konto. Internett trengs bare for å laste ned en løype fra Livelox. Stempling av poster under løpet fungerer uten internett.</p></details>
+        <details><summary>Hvorfor må jeg logge inn på Livelox?</summary><p>Livelox lar bare innloggede brukere laste ned løyper til andre apper. Det holder med en gratis Livelox-konto. Innloggingen skjer på Livelox sine egne sider; VirtuO ser aldri passordet ditt.</p></details>
+      </div>
+      <p class="faq-more"><a href="faq.html">Alle spørsmål →</a></p>
+    </div>
+  </section>
 </main>
 
 <footer>
@@ -393,7 +416,7 @@
     </p>
   </div>
   <div class="wrap row">
-    <span>© 2026 VirtuO · virtuo.run · <a href="privacy.html">Personvern</a> · <a href="support.html">Støtte</a></span>
+    <span>© 2026 VirtuO · virtuo.run · <a href="faq.html">FAQ</a> · <a href="privacy.html">Personvern</a> · <a href="support.html">Støtte</a></span>
     <span>
       iPhone og Apple Watch er varemerker for Apple Inc.; Android og Google Play er varemerker for Google LLC. Livelox, OCAD og Purple Pen er varemerker eller merkenavn for sine respektive eiere. IOF XML er et dataformat for International Orienteering Federation (IOF). VirtuO er en uavhengig app og ikke et produkt fra disse selskapene. Livelox-logoen brukes med tillatelse fra Livelox.
     </span>

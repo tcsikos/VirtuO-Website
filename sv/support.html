@@ -77,6 +77,12 @@
   .nav .links a.cta { color: #000; background: var(--orange); border-radius: 999px; padding: 0 16px; font-weight: 600; }
   .nav .links a.cta:hover { color: #000; filter: brightness(1.08); }
   .nav .links a:hover { color: var(--ink); }
+  .nav .links a[aria-current="page"] { color: var(--ink); font-weight: 600; }
+  @media (max-width: 760px) {
+    .nav .links { order: 3; width: 100%; margin-left: 0; justify-content: space-between; }
+    .nav .links a.hide-m { display: none; }
+    .nav .links a { padding: 0 6px; }
+  }
   /* nyelvválasztó */
   .lp { position: relative; }
   .nav .brand + .lp { margin-left: auto; }
@@ -157,7 +163,7 @@
 <p class="sub">Hjälp med att använda VirtuO.</p>
 <div class="contact">Frågor eller ett fel att rapportera? Skriv till<a href="mailto:support@virtuo.run">support@virtuo.run</a></div>
 <h2>Vanliga frågor</h2>
-<details><summary>Hur installerar jag appen?</summary><p>iPhone- och Apple Watch-versionen kommer snart till App Store, och Android-versionen till Google Play. Fram till dess är den i sluten test; du får inbjudan via e-post.</p></details><details><summary>Hur loggar jag in på Livelox?</summary><p>Öppna Livelox-importen i appen och välj inloggning. Livelox egen sida öppnas, där loggar du in; VirtuO ser inte ditt lösenord. Sedan kan du söka efter en tävling och välja din klass.</p></details><details><summary>Hur exporterar jag IOF XML 3.0 från OCAD eller Purple Pen?</summary><p>Purple Pen: använd XML-exporten av banorna och välj IOF XML 3.0. OCAD: välj IOF XML 3.0 i banexporten. Menynamnen kan skilja sig mellan versionerna. Öppna sedan filen med VirtuO (Dela / Öppna med).</p></details><details><summary>Hur importerar jag en GPX-fil?</summary><p>Öppna .gpx-filen med VirtuO (Dela / Öppna med), eller använd filimporten i appen. Filen stannar på din enhet.<br><strong>Viktigt:</strong> GPX-filen måste innehålla separata punkter (waypoints eller ruttpunkter). Den första punkten blir start, den sista mål, och namnet på varje punkt blir dess kontrollkod. En spårlogg som har spelats in under en löpning kan inte användas som bana, eftersom den inte har några separata punkter.</p></details><details><summary>Fungerar det i fickan eller med låst skärm?</summary><p>Ja, om du ställer in platsbehörigheten på «Alltid» (iPhone) eller «Tillåt hela tiden» (Android). Då upptäcker appen kontrollerna även med låst skärm.</p></details><details><summary>Hur fungerar Apple Watch-appen?</summary><p>Skicka banan till klockan från iPhone-appen; sedan kan du springa utan telefonen. Att spara träningen i Hälsa är avstängt som standard och kan slås på i inställningarna. På andra smartklockor berättar aviseringar om varje kontroll.</p></details><details><summary>Tips för batteriet</summary><p>Kontinuerlig GPS förbrukar batteri. Ladda telefonen innan en lång löpning och aktivera energisparläget vid behov; du behöver inte hålla skärmen tänd, appen fungerar med låst skärm.</p></details>
+<p>Du hittar de vanliga frågorna och svaren på <a href="faq.html">FAQ-sidan</a>.</p>
 <h2>Integritet</h2>
 <p>Se <a href="privacy.html">integritetspolicyn</a>.</p>
 </div>
@@ -166,7 +172,7 @@
 <footer>
   <div class="wrap row">
     <span>© 2026 VirtuO · virtuo.run</span>
-    <span class="flinks"><a href="index.html">Startsida</a> · <a href="privacy.html">Integritet</a> · <a href="support.html">Support</a></span>
+    <span class="flinks"><a href="index.html">Startsida</a> · <a href="privacy.html">Integritet</a> · <a href="faq.html">FAQ</a> · <a href="support.html">Support</a></span>
   </div>
 </footer>
 

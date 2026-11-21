@@ -77,6 +77,12 @@
   .nav .links a.cta { color: #000; background: var(--orange); border-radius: 999px; padding: 0 16px; font-weight: 600; }
   .nav .links a.cta:hover { color: #000; filter: brightness(1.08); }
   .nav .links a:hover { color: var(--ink); }
+  .nav .links a[aria-current="page"] { color: var(--ink); font-weight: 600; }
+  @media (max-width: 760px) {
+    .nav .links { order: 3; width: 100%; margin-left: 0; justify-content: space-between; }
+    .nav .links a.hide-m { display: none; }
+    .nav .links a { padding: 0 6px; }
+  }
   /* nyelvválasztó */
   .lp { position: relative; }
   .nav .brand + .lp { margin-left: auto; }
@@ -157,7 +163,7 @@
 <p class="sub">Hilfe zur Nutzung von VirtuO.</p>
 <div class="contact">Fragen oder einen Fehler melden? Schreib an<a href="mailto:support@virtuo.run">support@virtuo.run</a></div>
 <h2>Häufig gestellte Fragen</h2>
-<details><summary>Wie installiere ich die App?</summary><p>Die iPhone-/Apple-Watch-Version kommt bald in den App Store, die Android-Version bald zu Google Play. Bis dahin läuft der geschlossene Test; die Einladung bekommst du per E-Mail.</p></details><details><summary>Wie melde ich mich bei Livelox an?</summary><p>Öffne in der App den Livelox-Import und wähle die Anmeldung. Die eigene Seite von Livelox öffnet sich, dort meldest du dich an; VirtuO sieht dein Passwort nicht. Danach kannst du nach einem Wettkampf suchen und deine Klasse auswählen.</p></details><details><summary>Wie exportiere ich IOF XML 3.0 aus OCAD oder Purple Pen?</summary><p>Purple Pen: Wähle beim Exportieren der Bahnen (XML-Export) das Format IOF XML 3.0. OCAD: Wähle beim Bahnexport IOF XML 3.0. Die Menünamen können je nach Version abweichen. Öffne die fertige Datei dann mit VirtuO (Teilen / Öffnen mit).</p></details><details><summary>Wie importiere ich eine GPX-Datei?</summary><p>Öffne die .gpx-Datei mit VirtuO (Teilen / Öffnen mit) oder nutze den Datei-Import in der App. Die Datei bleibt auf deinem Gerät.<br><strong>Wichtig:</strong> Die GPX-Datei muss einzelne Punkte enthalten (Wegpunkte oder Routenpunkte). Der erste Punkt wird der Start, der letzte das Ziel, und der Name jedes Punktes ist sein Postencode. Eine bei einem Lauf aufgezeichnete Spur (Track) kann nicht als Bahn verwendet werden, weil sie keine einzelnen Punkte enthält.</p></details><details><summary>Funktioniert es auch in der Hosentasche oder bei gesperrtem Bildschirm?</summary><p>Ja, wenn du die Standortberechtigung auf „Immer“ (iPhone) bzw. „Immer zulassen“ (Android) stellst. Dann erkennt die App die Posten auch bei gesperrtem Bildschirm.</p></details><details><summary>Wie funktioniert die Apple-Watch-App?</summary><p>Schick die Bahn von der iPhone-App auf die Uhr; danach kannst du auch ohne Handy laufen. Das Speichern des Trainings in der Health-App ist standardmäßig aus und lässt sich in den Einstellungen einschalten. Auf anderen Smartwatches zeigen dir Benachrichtigungen jeden Posten an.</p></details><details><summary>Tipp zum Akku</summary><p>Dauerhaftes GPS verbraucht Akku. Lade dein Handy vor einem langen Lauf auf und schalte bei Bedarf den Stromsparmodus ein. Den Bildschirm musst du nicht eingeschaltet lassen, die App funktioniert auch bei gesperrtem Bildschirm.</p></details>
+<p>Die häufigsten Fragen und Antworten findest du auf der <a href="faq.html">FAQ-Seite</a>.</p>
 <h2>Datenschutz</h2>
 <p>Siehe die <a href="privacy.html">Datenschutzerklärung</a>.</p>
 </div>
@@ -166,7 +172,7 @@
 <footer>
   <div class="wrap row">
     <span>© 2026 VirtuO · virtuo.run</span>
-    <span class="flinks"><a href="index.html">Startseite</a> · <a href="privacy.html">Datenschutz</a> · <a href="support.html">Support</a></span>
+    <span class="flinks"><a href="index.html">Startseite</a> · <a href="privacy.html">Datenschutz</a> · <a href="faq.html">FAQ</a> · <a href="support.html">Support</a></span>
   </div>
 </footer>
 

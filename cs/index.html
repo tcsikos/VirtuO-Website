@@ -77,6 +77,12 @@
   .nav .links a.cta { color: #000; background: var(--orange); border-radius: 999px; padding: 0 16px; font-weight: 600; }
   .nav .links a.cta:hover { color: #000; filter: brightness(1.08); }
   .nav .links a:hover { color: var(--ink); }
+  .nav .links a[aria-current="page"] { color: var(--ink); font-weight: 600; }
+  @media (max-width: 760px) {
+    .nav .links { order: 3; width: 100%; margin-left: 0; justify-content: space-between; }
+    .nav .links a.hide-m { display: none; }
+    .nav .links a { padding: 0 6px; }
+  }
   /* nyelvválasztó */
   .lp { position: relative; }
   .nav .brand + .lp { margin-left: auto; }
@@ -155,6 +161,12 @@
   .privacy li { position: relative; padding-left: 34px; margin: 10px 0; color: var(--muted); }
   .privacy li::before { content: "✓"; position: absolute; left: 0; top: 1px; width: 22px; height: 22px; border-radius: 50%; background: #6FD28F; color: #0B2E1A; font-weight: 700; font-size: 14px; line-height: 22px; text-align: center; }
   .privacy li strong { color: var(--ink); }
+  .faq-list { max-width: 760px; margin-top: 24px; }
+  .faq details { background: var(--card); border: 1px solid var(--line); border-radius: 12px; padding: 0 18px; margin: 10px 0; }
+  .faq summary { cursor: pointer; font-weight: 600; padding: 14px 0; min-height: 44px; }
+  .faq details p { margin: 0 0 14px; color: var(--muted); }
+  .faq-more { margin: 20px 0 0; }
+  .faq-more a { color: var(--link); font-weight: 600; display: inline-flex; align-items: center; min-height: 44px; }
 
   footer { border-top: 1px solid var(--line); padding: 28px 0 40px; color: var(--muted); font-size: 14px; }
   footer .row { display: flex; justify-content: space-between; gap: 16px; flex-wrap: wrap; }
@@ -162,9 +174,6 @@
   @media (max-width: 760px) {
     .steps, .features { grid-template-columns: 1fr; }
     .nav { padding-top: 6px; padding-bottom: 6px; }
-    .nav .links { order: 3; width: 100%; margin-left: 0; justify-content: space-between; }
-    .nav .links a.hide-m { display: none; }
-    .nav .links a { padding: 0 6px; }
     .hero { padding: 40px 20px 36px; }
     .scene { padding-bottom: 4px; }
     .scene img { border-radius: 14px 14px 0 0; }
@@ -181,6 +190,7 @@
       <a class="hide-m" href="#how">Jak to funguje</a>
       <a class="hide-m" href="#features">Funkce</a>
       <a href="#livelox">Livelox</a>
+      <a href="faq.html">FAQ</a>
       <a class="cta" href="#get">Získat aplikaci</a>
     </div>
     <div class="lp" id="lp">
@@ -252,9 +262,9 @@
       <div class="steps">
         <div class="step">
           <div class="num">1</div>
-          <h3>Načti trať</h3>
+          <h3>Připrav se</h3>
           <p>
-            Stáhni trať z Livelox, naimportuj soubor IOF XML (Purple Pen, OCAD) nebo GPX s body, anebo zadej souřadnice kontrol ručně.
+            Načti trať z Livelox nebo ze souboru, anebo zadej souřadnice kontrol ručně. Budeš potřebovat i vytištěnou mapu, podle které se orientuješ.
           </p>
         </div>
         <div class="step">
@@ -268,7 +278,7 @@
           <div class="num">3</div>
           <h3>Raž kontroly</h3>
           <p>
-            Když dojdeš k další kontrole, aplikace zavibruje, pípne a uloží tvůj mezičas.
+            Když se dostaneš do okruhu další kontroly, aplikace zavibruje, pípne a uloží tvůj mezičas. Nahrazuje tak lampiony i SI čip.
           </p>
         </div>
       </div>
@@ -384,6 +394,19 @@
         <li><strong>Žádné reklamy a žádné sledování.</strong></li></ul>
     </div>
   </section>
+
+  <section id="faq" class="faq">
+    <div class="wrap">
+      <h2>Často kladené otázky</h2>
+      <div class="faq-list">
+        <details><summary>Zobrazuje aplikace orientační mapu?</summary><p>Ne. Pro orientaci <strong>potřebuješ tištěnou mapu</strong>: vytiskni mapu trati a vezmi ji s sebou. Aplikace ukazuje jen kontroly. Podkladová mapa v zobrazení trati je pouze orientační a pro orientační běh se nehodí.</p></details>
+        <details><summary>Na jakých telefonech a hodinkách funguje?</summary><p>Na iPhonu a na Android telefonech funguje samostatně. Pokud máš chytré hodinky, které zobrazují oznámení z telefonu a vibrují u nich, zavibrují i tam. Pro Apple Watch je navíc samostatná aplikace, takže telefon s sebou nemusíš nosit.</p></details>
+        <details><summary>Potřebuji účet nebo internet?</summary><p>Účet VirtuO nepotřebuješ. Internet je potřeba jen ke stažení trati z Livelox. Ražení kontrol během běhu funguje i bez internetu.</p></details>
+        <details><summary>Proč se musím přihlásit do Livelox?</summary><p>Livelox umožňuje stahovat tratě do jiných aplikací jen přihlášeným uživatelům. Stačí bezplatný účet Livelox. Přihlášení probíhá na vlastní stránce Livelox; VirtuO tvoje heslo nevidí.</p></details>
+      </div>
+      <p class="faq-more"><a href="faq.html">Všechny otázky →</a></p>
+    </div>
+  </section>
 </main>
 
 <footer>
@@ -393,7 +416,7 @@
     </p>
   </div>
   <div class="wrap row">
-    <span>© 2026 VirtuO · virtuo.run · <a href="privacy.html">Soukromí</a> · <a href="support.html">Podpora</a></span>
+    <span>© 2026 VirtuO · virtuo.run · <a href="faq.html">FAQ</a> · <a href="privacy.html">Soukromí</a> · <a href="support.html">Podpora</a></span>
     <span>
       iPhone a Apple Watch jsou ochranné známky společnosti Apple Inc.; Android a Google Play jsou ochranné známky společnosti Google LLC. Livelox, OCAD a Purple Pen jsou ochranné známky nebo obchodní názvy jejich vlastníků. IOF XML je datový formát Mezinárodní federace orientačního běhu (IOF). VirtuO je nezávislá aplikace a není produktem těchto společností. Logo Livelox se používá se souhlasem společnosti Livelox.
     </span>

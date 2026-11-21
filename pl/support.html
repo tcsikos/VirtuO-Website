@@ -77,6 +77,12 @@
   .nav .links a.cta { color: #000; background: var(--orange); border-radius: 999px; padding: 0 16px; font-weight: 600; }
   .nav .links a.cta:hover { color: #000; filter: brightness(1.08); }
   .nav .links a:hover { color: var(--ink); }
+  .nav .links a[aria-current="page"] { color: var(--ink); font-weight: 600; }
+  @media (max-width: 760px) {
+    .nav .links { order: 3; width: 100%; margin-left: 0; justify-content: space-between; }
+    .nav .links a.hide-m { display: none; }
+    .nav .links a { padding: 0 6px; }
+  }
   /* nyelvválasztó */
   .lp { position: relative; }
   .nav .brand + .lp { margin-left: auto; }
@@ -157,7 +163,7 @@
 <p class="sub">Pomoc w korzystaniu z VirtuO.</p>
 <div class="contact">Masz pytanie lub chcesz zgłosić błąd? Napisz na adres<a href="mailto:support@virtuo.run">support@virtuo.run</a></div>
 <h2>Najczęstsze pytania</h2>
-<details><summary>Jak zainstalować aplikację?</summary><p>Wersja na iPhone'a / Apple Watch wkrótce pojawi się w App Store, a wersja na Androida w Google Play. Do tego czasu trwa zamknięty test; zaproszenie dostaniesz e-mailem.</p></details><details><summary>Jak zalogować się do Livelox?</summary><p>W aplikacji otwórz import z Livelox i wybierz logowanie. Otworzy się strona Livelox, tam się zalogujesz; VirtuO nie widzi Twojego hasła. Potem możesz wyszukać zawody i wybrać kategorię.</p></details><details><summary>Jak wyeksportować IOF XML 3.0 z OCAD lub Purple Pen?</summary><p>Purple Pen: przy eksporcie tras (eksport XML) wybierz IOF XML 3.0. OCAD: przy eksporcie tras wybierz IOF XML 3.0. Nazwy menu mogą różnić się między wersjami. Potem otwórz plik w VirtuO (Udostępnij / Otwórz w).</p></details><details><summary>Jak zaimportować plik GPX?</summary><p>Otwórz plik .gpx w VirtuO (Udostępnij / Otwórz w) albo użyj importu plików w aplikacji. Plik zostaje na Twoim urządzeniu.<br><strong>Ważne:</strong> GPX musi zawierać osobne punkty (waypoints lub punkty trasy). Pierwszy punkt będzie startem, ostatni metą, a nazwa każdego punktu stanie się jego kodem punktu. Zarejestrowany podczas biegu zapis śladu (track) nie może być użyty jako trasa, bo nie ma w nim osobnych punktów.</p></details><details><summary>Czy działa w kieszeni lub przy zablokowanym ekranie?</summary><p>Tak, jeśli ustawisz zgodę na lokalizację na „Zawsze” (iPhone) lub „Zezwalaj cały czas” (Android). Wtedy aplikacja wykrywa punkty nawet przy zablokowanym ekranie.</p></details><details><summary>Jak działa aplikacja na Apple Watch?</summary><p>Wyślij trasę na zegarek z aplikacji na iPhone'a; potem możesz biegać bez telefonu. Zapis treningu w Zdrowiu jest domyślnie wyłączony i można go włączyć w ustawieniach. Na innych smartwatchach powiadomienia informują o każdym punkcie.</p></details><details><summary>Wskazówka dotycząca baterii</summary><p>Ciągły GPS zużywa baterię. Naładuj telefon przed długim biegiem i w razie potrzeby włącz tryb oszczędzania energii; nie musisz trzymać ekranu włączonego, bo aplikacja działa przy zablokowanym ekranie.</p></details>
+<p>Najczęstsze pytania i odpowiedzi znajdziesz na <a href="faq.html">stronie FAQ</a>.</p>
 <h2>Prywatność</h2>
 <p>Zobacz <a href="privacy.html">politykę prywatności</a>.</p>
 </div>
@@ -166,7 +172,7 @@
 <footer>
   <div class="wrap row">
     <span>© 2026 VirtuO · virtuo.run</span>
-    <span class="flinks"><a href="index.html">Strona główna</a> · <a href="privacy.html">Prywatność</a> · <a href="support.html">Pomoc techniczna</a></span>
+    <span class="flinks"><a href="index.html">Strona główna</a> · <a href="privacy.html">Prywatność</a> · <a href="faq.html">FAQ</a> · <a href="support.html">Pomoc techniczna</a></span>
   </div>
 </footer>
 

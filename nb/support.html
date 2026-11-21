@@ -77,6 +77,12 @@
   .nav .links a.cta { color: #000; background: var(--orange); border-radius: 999px; padding: 0 16px; font-weight: 600; }
   .nav .links a.cta:hover { color: #000; filter: brightness(1.08); }
   .nav .links a:hover { color: var(--ink); }
+  .nav .links a[aria-current="page"] { color: var(--ink); font-weight: 600; }
+  @media (max-width: 760px) {
+    .nav .links { order: 3; width: 100%; margin-left: 0; justify-content: space-between; }
+    .nav .links a.hide-m { display: none; }
+    .nav .links a { padding: 0 6px; }
+  }
   /* nyelvválasztó */
   .lp { position: relative; }
   .nav .brand + .lp { margin-left: auto; }
@@ -157,7 +163,7 @@
 <p class="sub">Hjelp med bruk av VirtuO.</p>
 <div class="contact">Spørsmål eller en feil å melde? Skriv til<a href="mailto:support@virtuo.run">support@virtuo.run</a></div>
 <h2>Vanlige spørsmål</h2>
-<details><summary>Hvordan installerer jeg appen?</summary><p>iPhone- og Apple Watch-versjonen kommer snart til App Store, og Android-versjonen til Google Play. Frem til da er den i lukket test; du får invitasjonen på e-post.</p></details><details><summary>Hvordan logger jeg inn på Livelox?</summary><p>I appen åpner du Livelox-importen og velger innlogging. Livelox sin egen side åpnes, der logger du inn; VirtuO ser ikke passordet ditt. Deretter kan du søke etter et arrangement og velge klassen din.</p></details><details><summary>Hvordan eksporterer jeg IOF XML 3.0 fra OCAD eller Purple Pen?</summary><p>Purple Pen: bruk XML-eksporten av løypene og velg IOF XML 3.0. OCAD: velg IOF XML 3.0 i løypeeksporten. Menynavnene kan variere mellom versjonene. Åpne deretter filen med VirtuO (Del / Åpne med).</p></details><details><summary>Hvordan importerer jeg en GPX-fil?</summary><p>Åpne .gpx-filen med VirtuO (Del / Åpne med), eller bruk filimporten i appen. Filen blir på enheten din.<br><strong>Viktig:</strong> GPX-filen må inneholde separate punkter (waypoints eller rutepunkter). Det første punktet blir start, det siste mål, og navnet på hvert punkt blir postkoden. Et spor som er tatt opp under et løp, kan ikke brukes som løype, fordi det ikke har separate punkter.</p></details><details><summary>Fungerer det i lomma eller med låst skjerm?</summary><p>Ja, hvis du setter posisjonstillatelsen til «Alltid» (iPhone) eller «Tillat hele tiden» (Android). Da registrerer appen postene også med låst skjerm.</p></details><details><summary>Hvordan fungerer Apple Watch-appen?</summary><p>Send løypa til klokka fra iPhone-appen; deretter kan du løpe uten telefonen. Lagring av treningen i Helse er av som standard, og kan slås på i innstillingene. På andre smartklokker varsler du om hver post.</p></details><details><summary>Tips for batteriet</summary><p>Kontinuerlig GPS bruker batteri. Lad telefonen før et langt løp, og slå på strømsparingsmodus ved behov; du trenger ikke å holde skjermen på, appen fungerer med låst skjerm.</p></details>
+<p>Du finner de vanligste spørsmålene og svarene på <a href="faq.html">FAQ-siden</a>.</p>
 <h2>Personvern</h2>
 <p>Se <a href="privacy.html">personvernerklæringen</a>.</p>
 </div>
@@ -166,7 +172,7 @@
 <footer>
   <div class="wrap row">
     <span>© 2026 VirtuO · virtuo.run</span>
-    <span class="flinks"><a href="index.html">Hjem</a> · <a href="privacy.html">Personvern</a> · <a href="support.html">Støtte</a></span>
+    <span class="flinks"><a href="index.html">Hjem</a> · <a href="privacy.html">Personvern</a> · <a href="faq.html">FAQ</a> · <a href="support.html">Støtte</a></span>
   </div>
 </footer>
 

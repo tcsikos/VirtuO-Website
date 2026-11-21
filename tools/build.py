@@ -26,7 +26,7 @@ TPL = os.path.join(ROOT, "tools", "templates")
 PARTIALS = os.path.join(TPL, "partials")
 I18N = os.path.join(ROOT, "i18n")
 SITE = "https://virtuo.run"
-PAGES = ["index", "privacy", "support"]
+PAGES = ["index", "faq", "privacy", "support"]
 
 # code, own-language name, short code shown in the button, og:locale
 LANGS = [

@@ -77,6 +77,12 @@
   .nav .links a.cta { color: #000; background: var(--orange); border-radius: 999px; padding: 0 16px; font-weight: 600; }
   .nav .links a.cta:hover { color: #000; filter: brightness(1.08); }
   .nav .links a:hover { color: var(--ink); }
+  .nav .links a[aria-current="page"] { color: var(--ink); font-weight: 600; }
+  @media (max-width: 760px) {
+    .nav .links { order: 3; width: 100%; margin-left: 0; justify-content: space-between; }
+    .nav .links a.hide-m { display: none; }
+    .nav .links a { padding: 0 6px; }
+  }
   /* nyelvválasztó */
   .lp { position: relative; }
   .nav .brand + .lp { margin-left: auto; }
@@ -157,7 +163,7 @@
 <p class="sub">Pomoc s používáním VirtuO.</p>
 <div class="contact">Máš dotaz nebo chceš nahlásit chybu? Napiš na<a href="mailto:support@virtuo.run">support@virtuo.run</a></div>
 <h2>Časté otázky</h2>
-<details><summary>Jak nainstaluji aplikaci?</summary><p>Verze pro iPhone / Apple Watch brzy přijde do App Store a verze pro Android do Google Play. Do té doby běží uzavřené testování; pozvánku dostaneš e-mailem.</p></details><details><summary>Jak se přihlásím k Livelox?</summary><p>V aplikaci otevři import z Livelox a zvol přihlášení. Otevře se vlastní stránka Livelox, tam se přihlásíš; VirtuO tvoje heslo nevidí. Potom můžeš vyhledat závod a vybrat kategorii.</p></details><details><summary>Jak exportuji IOF XML 3.0 z OCADu nebo Purple Pen?</summary><p>Purple Pen: při exportu tratí (export XML) zvol IOF XML 3.0. OCAD: při exportu tratí zvol IOF XML 3.0. Názvy nabídek se mohou u jednotlivých verzí lišit. Pak soubor otevři ve VirtuO (Sdílet / Otevřít v).</p></details><details><summary>Jak naimportuji soubor GPX?</summary><p>Otevři soubor .gpx ve VirtuO (Sdílet / Otevřít v), nebo použij import souboru v aplikaci. Soubor zůstane na tvém zařízení.<br><strong>Důležité:</strong> GPX musí obsahovat samostatné body (waypointy nebo body trasy). První bod bude start, poslední cíl a název každého bodu se stane jeho kódem kontroly. Záznam trasy z běhu (track) nelze použít jako trať, protože neobsahuje samostatné body.</p></details><details><summary>Funguje to v kapse nebo při zamčené obrazovce?</summary><p>Ano, pokud nastavíš oprávnění k poloze na „Vždy“ (iPhone), resp. „Povolit po celou dobu“ (Android). Aplikace pak rozpozná kontroly i při zamčené obrazovce.</p></details><details><summary>Jak funguje aplikace Apple Watch?</summary><p>Trať pošli na hodinky z aplikace na iPhonu; potom můžeš běžet bez telefonu. Ukládání tréninku do Zdraví je ve výchozím nastavení vypnuté a v nastavení ho můžeš zapnout. Na jiných chytrých hodinkách tě o každé kontrole informují oznámení.</p></details><details><summary>Tip pro baterii</summary><p>Nepřetržité GPS spotřebovává baterii. Před dlouhým během nabij telefon a v případě potřeby zapni úsporný režim; obrazovku nemusíš mít zapnutou, aplikace funguje i při zamčené obrazovce.</p></details>
+<p>Často kladené otázky a odpovědi najdeš na <a href="faq.html">stránce FAQ</a>.</p>
 <h2>Soukromí</h2>
 <p>Viz <a href="privacy.html">zásady ochrany osobních údajů</a>.</p>
 </div>
@@ -166,7 +172,7 @@
 <footer>
   <div class="wrap row">
     <span>© 2026 VirtuO · virtuo.run</span>
-    <span class="flinks"><a href="index.html">Domů</a> · <a href="privacy.html">Soukromí</a> · <a href="support.html">Podpora</a></span>
+    <span class="flinks"><a href="index.html">Domů</a> · <a href="privacy.html">Soukromí</a> · <a href="faq.html">FAQ</a> · <a href="support.html">Podpora</a></span>
   </div>
 </footer>
 

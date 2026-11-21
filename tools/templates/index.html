@@ -17,6 +17,7 @@
       <a class="hide-m" href="#how">{{index.how-it-works}}</a>
       <a class="hide-m" href="#features">{{index.features}}</a>
       <a href="#livelox">Livelox</a>
+      <a href="faq.html">{{common.faq}}</a>
       <a class="cta" href="#get">{{index.get-the-app}}</a>
     </div>
     {{>picker.html}}
@@ -188,6 +189,19 @@
       <ul>{{index.no-account-no-server-courses}}</ul>
     </div>
   </section>
+
+  <section id="faq" class="faq">
+    <div class="wrap">
+      <h2>{{faq.title}}</h2>
+      <div class="faq-list">
+        <details><summary>{{faq.q-map}}</summary><p>{{faq.a-map}}</p></details>
+        <details><summary>{{faq.q-devices}}</summary><p>{{faq.a-devices}}</p></details>
+        <details><summary>{{faq.q-account}}</summary><p>{{faq.a-account}}</p></details>
+        <details><summary>{{faq.q-livelox-login}}</summary><p>{{faq.a-livelox-login}}</p></details>
+      </div>
+      <p class="faq-more"><a href="faq.html">{{index.faq-all}}</a></p>
+    </div>
+  </section>
 </main>
 
 <footer>
@@ -197,7 +211,7 @@
     </p>
   </div>
   <div class="wrap row">
-    <span>© 2026 VirtuO · virtuo.run · <a href="privacy.html">{{common.privacy}}</a> · <a href="support.html">{{common.support}}</a></span>
+    <span>© 2026 VirtuO · virtuo.run · <a href="faq.html">{{common.faq}}</a> · <a href="privacy.html">{{common.privacy}}</a> · <a href="support.html">{{common.support}}</a></span>
     <span>
       {{index.iphone-and-apple-watch-are}}
     </span>

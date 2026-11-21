@@ -100,6 +100,12 @@
   .nav .links a.cta { color: #000; background: var(--orange); border-radius: 999px; padding: 0 16px; font-weight: 600; }
   .nav .links a.cta:hover { color: #000; filter: brightness(1.08); }
   .nav .links a:hover { color: var(--ink); }
+  .nav .links a[aria-current="page"] { color: var(--ink); font-weight: 600; }
+  @media (max-width: 760px) {
+    .nav .links { order: 3; width: 100%; margin-left: 0; justify-content: space-between; }
+    .nav .links a.hide-m { display: none; }
+    .nav .links a { padding: 0 6px; }
+  }
   /* nyelvválasztó */
   .lp { position: relative; }
   .nav .brand + .lp { margin-left: auto; }
@@ -178,6 +184,12 @@
   .privacy li { position: relative; padding-left: 34px; margin: 10px 0; color: var(--muted); }
   .privacy li::before { content: "✓"; position: absolute; left: 0; top: 1px; width: 22px; height: 22px; border-radius: 50%; background: #6FD28F; color: #0B2E1A; font-weight: 700; font-size: 14px; line-height: 22px; text-align: center; }
   .privacy li strong { color: var(--ink); }
+  .faq-list { max-width: 760px; margin-top: 24px; }
+  .faq details { background: var(--card); border: 1px solid var(--line); border-radius: 12px; padding: 0 18px; margin: 10px 0; }
+  .faq summary { cursor: pointer; font-weight: 600; padding: 14px 0; min-height: 44px; }
+  .faq details p { margin: 0 0 14px; color: var(--muted); }
+  .faq-more { margin: 20px 0 0; }
+  .faq-more a { color: var(--link); font-weight: 600; display: inline-flex; align-items: center; min-height: 44px; }
 
   footer { border-top: 1px solid var(--line); padding: 28px 0 40px; color: var(--muted); font-size: 14px; }
   footer .row { display: flex; justify-content: space-between; gap: 16px; flex-wrap: wrap; }
@@ -185,9 +197,6 @@
   @media (max-width: 760px) {
     .steps, .features { grid-template-columns: 1fr; }
     .nav { padding-top: 6px; padding-bottom: 6px; }
-    .nav .links { order: 3; width: 100%; margin-left: 0; justify-content: space-between; }
-    .nav .links a.hide-m { display: none; }
-    .nav .links a { padding: 0 6px; }
     .hero { padding: 40px 20px 36px; }
     .scene { padding-bottom: 4px; }
     .scene img { border-radius: 14px 14px 0 0; }
@@ -204,6 +213,7 @@
       <a class="hide-m" href="#how">How it works</a>
       <a class="hide-m" href="#features">Features</a>
       <a href="#livelox">Livelox</a>
+      <a href="faq.html">FAQ</a>
       <a class="cta" href="#get">Get the app</a>
     </div>
     <div class="lp" id="lp">
@@ -275,9 +285,9 @@
       <div class="steps">
         <div class="step">
           <div class="num">1</div>
-          <h3>Load a course</h3>
+          <h3>Get ready</h3>
           <p>
-            Download the course from Livelox, import an IOF XML (Purple Pen, OCAD) or a GPX file with points, or type in the control coordinates.
+            Load the course from Livelox or a file, or type in the control coordinates by hand. You will also need a printed map to navigate with.
           </p>
         </div>
         <div class="step">
@@ -291,7 +301,7 @@
           <div class="num">3</div>
           <h3>Punch the controls</h3>
           <p>
-            When you reach the next control, the app vibrates, beeps and records your split.
+            When you get within range of the next control, the app vibrates, beeps and records your split. It replaces both the flags and the SI card.
           </p>
         </div>
       </div>
@@ -407,6 +417,19 @@
         <li><strong>No ads and no tracking.</strong></li></ul>
     </div>
   </section>
+
+  <section id="faq" class="faq">
+    <div class="wrap">
+      <h2>Frequently asked questions</h2>
+      <div class="faq-list">
+        <details><summary>Does the app show an orienteering map?</summary><p>No. You <strong>need a printed map</strong> to navigate: print the course map and take it with you. The app only signals the controls. The background map in the course view is for reference only and is not suitable for orienteering.</p></details>
+        <details><summary>Which phones and watches does it work with?</summary><p>It works on its own on iPhone and Android phones. If you have any smartwatch that shows your phone's notifications and vibrates for them, it signals there too. There is also a dedicated Apple Watch app, and with it you don't need to carry your phone.</p></details>
+        <details><summary>Do I need an account or an internet connection?</summary><p>You don't need a VirtuO account. Internet is only needed to download a course from Livelox. Punching controls works without internet while you run.</p></details>
+        <details><summary>Why do I need to sign in to Livelox?</summary><p>Livelox only lets signed-in users download courses into other apps. A free Livelox account is enough. You sign in on Livelox's own page; VirtuO never sees your password.</p></details>
+      </div>
+      <p class="faq-more"><a href="faq.html">All questions →</a></p>
+    </div>
+  </section>
 </main>
 
 <footer>
@@ -416,7 +439,7 @@
     </p>
   </div>
   <div class="wrap row">
-    <span>© 2026 VirtuO · virtuo.run · <a href="privacy.html">Privacy</a> · <a href="support.html">Support</a></span>
+    <span>© 2026 VirtuO · virtuo.run · <a href="faq.html">FAQ</a> · <a href="privacy.html">Privacy</a> · <a href="support.html">Support</a></span>
     <span>
       iPhone and Apple Watch are trademarks of Apple Inc.; Android and Google Play are trademarks of Google LLC. Livelox, OCAD and Purple Pen are trademarks or brand names of their respective owners. IOF XML is a data format of the International Orienteering Federation (IOF). VirtuO is an independent app and not a product of these companies. Livelox logo used with permission.
     </span>

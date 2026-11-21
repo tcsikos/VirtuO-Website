@@ -77,6 +77,12 @@
   .nav .links a.cta { color: #000; background: var(--orange); border-radius: 999px; padding: 0 16px; font-weight: 600; }
   .nav .links a.cta:hover { color: #000; filter: brightness(1.08); }
   .nav .links a:hover { color: var(--ink); }
+  .nav .links a[aria-current="page"] { color: var(--ink); font-weight: 600; }
+  @media (max-width: 760px) {
+    .nav .links { order: 3; width: 100%; margin-left: 0; justify-content: space-between; }
+    .nav .links a.hide-m { display: none; }
+    .nav .links a { padding: 0 6px; }
+  }
   /* nyelvválasztó */
   .lp { position: relative; }
   .nav .brand + .lp { margin-left: auto; }
@@ -157,7 +163,7 @@
 <p class="sub">Ayuda para usar VirtuO.</p>
 <div class="contact">¿Tienes preguntas o un error que reportar? Escribe a<a href="mailto:support@virtuo.run">support@virtuo.run</a></div>
 <h2>Preguntas frecuentes</h2>
-<details><summary>¿Cómo instalo la app?</summary><p>La versión para iPhone / Apple Watch llegará pronto a App Store, y la versión para Android a Google Play. Hasta entonces está en pruebas cerradas; recibirás la invitación por e-mail.</p></details><details><summary>¿Cómo inicio sesión en Livelox?</summary><p>En la app, abre la importación de Livelox y elige iniciar sesión. Se abre la página de Livelox y allí inicias sesión; VirtuO no ve tu contraseña. Después puedes buscar una prueba y elegir tu categoría.</p></details><details><summary>¿Cómo exporto un IOF XML 3.0 desde OCAD o Purple Pen?</summary><p>Purple Pen: en la exportación de los recorridos (exportación XML), elige IOF XML 3.0. OCAD: en la exportación de recorridos, elige IOF XML 3.0. Los nombres de los menús pueden variar según la versión. Luego abre el archivo con VirtuO (Compartir / Abrir con).</p></details><details><summary>¿Cómo importo un archivo GPX?</summary><p>Abre el archivo .gpx con VirtuO (Compartir / Abrir con), o usa la importación de archivos de la app. El archivo se queda en tu dispositivo.<br><strong>Importante:</strong> el GPX debe contener puntos separados (waypoints o puntos de ruta). El primer punto será la salida, el último la meta, y el nombre de cada punto será su código de control. Un track grabado durante una carrera no sirve como recorrido, porque no tiene puntos separados.</p></details><details><summary>¿Funciona en el bolsillo o con la pantalla bloqueada?</summary><p>Sí, si pones el permiso de ubicación en «Siempre» (iPhone) o «Permitir todo el tiempo» (Android). Así la app detecta los controles incluso con la pantalla bloqueada.</p></details><details><summary>¿Cómo funciona la app de Apple Watch?</summary><p>Envía el recorrido al reloj desde la app del iPhone; después puedes correr sin el teléfono. Guardar el entrenamiento en Salud está desactivado por defecto y se puede activar en los ajustes. En otros smartwatches, las notificaciones te avisan de cada control.</p></details><details><summary>Consejo para la batería</summary><p>El GPS continuo gasta batería. Carga el teléfono antes de una carrera larga y activa el modo de ahorro de energía si hace falta; no necesitas mantener la pantalla encendida, la app funciona con la pantalla bloqueada.</p></details>
+<p>Encontrarás las preguntas frecuentes y sus respuestas en la <a href="faq.html">página de FAQ</a>.</p>
 <h2>Privacidad</h2>
 <p>Consulta la <a href="privacy.html">política de privacidad</a>.</p>
 </div>
@@ -166,7 +172,7 @@
 <footer>
   <div class="wrap row">
     <span>© 2026 VirtuO · virtuo.run</span>
-    <span class="flinks"><a href="index.html">Inicio</a> · <a href="privacy.html">Privacidad</a> · <a href="support.html">Soporte</a></span>
+    <span class="flinks"><a href="index.html">Inicio</a> · <a href="privacy.html">Privacidad</a> · <a href="faq.html">FAQ</a> · <a href="support.html">Soporte</a></span>
   </div>
 </footer>
 
