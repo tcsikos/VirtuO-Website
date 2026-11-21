@@ -173,11 +173,11 @@
 
 <h2>Ubicación</h2>
 <ul><li>La app usa el GPS solo mientras una carrera está activa, para detectar cuándo llegas a un control. Esto también funciona con la pantalla bloqueada y el teléfono en el bolsillo, por eso pide el permiso de ubicación «también en segundo plano».</li>
-<li>VirtuO no envía tu ubicación a ningún sitio; tras una carrera solo guarda los parciales, no tu ruta. Excepción: si activas el guardado en Salud en la app de Apple Watch, la ruta se guarda allí (ver más abajo).</li>
+<li>VirtuO no envía tu ubicación a ningún sitio; tras una carrera guarda solo los parciales, no tu ruta. Excepción: la app del reloj guarda el entrenamiento en Salud por defecto (puedes desactivarlo en los ajustes de la app del reloj), y entonces la ruta se guarda allí (ver más abajo).</li>
 <li>La búsqueda de pruebas de Livelox puede usar tu ubicación aproximada una vez para sugerir tu país. El sistema operativo de tu teléfono (Apple, o Android/Google) la convierte en un código de país, lo que puede implicar el servicio de ese proveedor; VirtuO no la envía a un servidor propio, porque no tiene ninguno. Si no das el permiso, se usa en su lugar el ajuste de región del teléfono.</li></ul>
 
 <h2>Apple Health</h2>
-<p>Solo la app de Apple Watch puede escribir en Salud, y únicamente si activas el interruptor «Guardar en Salud» en los ajustes (está desactivado por defecto). Entonces se guardan el entrenamiento, la ruta y la frecuencia cardíaca. La app del iPhone no escribe en Salud. En Android no existe esta conexión.</p>
+<p>Solo la app del reloj puede escribir en Salud: inicia la carrera como entrenamiento y guarda el entrenamiento, la ruta y el pulso. Está activado por defecto; Apple pide permiso la primera vez, y puedes desactivarlo en cualquier momento en los ajustes de la app del reloj (“Guardar en Salud”). Los datos se quedan en Salud, en tus propios dispositivos; VirtuO no tiene servidor y no ve nada. La app del iPhone no escribe en Salud. En Android no existe esta conexión.</p>
 
 <h2>Livelox</h2>
 <p>Iniciar sesión en Livelox es opcional. Inicias sesión en la propia página de Livelox (OAuth), y VirtuO nunca ve tu contraseña. El token de inicio de sesión se guarda en el llavero del dispositivo (iPhone) o en el almacenamiento seguro (Android Keystore). Solo se descargan datos públicos de los recorridos. Livelox tiene su propia política de privacidad.</p>

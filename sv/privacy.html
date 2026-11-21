@@ -173,11 +173,11 @@
 
 <h2>Plats</h2>
 <ul><li>Appen använder GPS bara medan en löpning är aktiv, för att upptäcka när du når en kontroll. Detta fungerar även med låst skärm och telefonen i fickan, därför ber den om platsbehörighet «även i bakgrunden».</li>
-<li>VirtuO skickar aldrig din plats någonstans; efter en löpning sparar den bara sträcktiderna, inte din rutt. Undantag: om du slår på sparande i Hälsa i Apple Watch-appen sparas rutten dit (se nedan).</li>
+<li>VirtuO skickar inte din plats någonstans; efter ett lopp sparar den bara sträcktiderna, inte din rutt. Undantag: klockappen sparar loppet som ett träningspass i Hälsa som standard (du kan stänga av det i klockappens inställningar), och då sparas rutten där (se nedan).</li>
 <li>Livelox-sökningen kan använda din ungefärliga plats en gång för att föreslå ditt land. Telefonens operativsystem (Apple, eller Android/Google) omvandlar den till en landskod, vilket kan involvera den tjänsteleverantörens egen tjänst; VirtuO skickar den inte till en egen server, eftersom det inte finns någon. Om du inte ger behörighet används i stället telefonens regioninställning.</li></ul>
 
 <h2>Apple Health</h2>
-<p>Endast Apple Watch-appen kan skriva till Hälsa, och bara om du slår på reglaget «Spara i Hälsa» i inställningarna (det är avstängt som standard). Då sparas träningen, rutten och pulsen. iPhone-appen skriver inte till Hälsa. Det finns ingen sådan koppling på Android.</p>
+<p>Bara klockappen kan skriva till Hälsa: den startar loppet som ett träningspass och sparar passet, rutten och pulsen. Det är på som standard; Apple frågar om behörighet första gången, och du kan stänga av det när som helst i klockappens inställningar (”Spara i Hälsa”). Uppgifterna stannar i Hälsa, på dina egna enheter; VirtuO har ingen server och ser ingenting av det. iPhone-appen skriver inte till Hälsa. Det finns ingen sådan koppling på Android.</p>
 
 <h2>Livelox</h2>
 <p>Det är valfritt att logga in på Livelox. Du loggar in på Livelox egen sida (OAuth), och VirtuO ser aldrig ditt lösenord. Inloggningstoken sparas i enhetens nyckelknippa (iPhone) eller i säker lagring (Android Keystore). Endast offentlig bandata laddas ner. Livelox har sin egen integritetspolicy.</p>

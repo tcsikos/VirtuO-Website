@@ -196,11 +196,11 @@
 
 <h2>Location</h2>
 <ul><li>The app uses GPS only while a run is active, to detect when you reach a control. This also works with the screen locked and the phone in your pocket, which is why it asks for background location permission.</li>
-<li>VirtuO does not send your location anywhere; after a run it keeps only the split times, not your route. Exception: if you turn on saving to Apple Health in the Apple Watch app, the route is saved there (see below).</li>
+<li>VirtuO does not send your location anywhere; after a run it keeps only the split times, not your route. Exception: the Apple Watch app saves the workout to Apple Health by default (can be switched off in the watch app settings), and then the route is saved there (see below).</li>
 <li>The Livelox event search may use your approximate location once to suggest your country. Your phone's operating system (Apple, or Android/Google) converts it to a country code, which may involve that provider's own service; VirtuO does not send it to a server of its own, because there is none. If you do not grant permission, the phone's region setting is used instead.</li></ul>
 
 <h2>Apple Health</h2>
-<p>Only the Apple Watch app can write to Apple Health, and only if you switch on "Save to Health" in the settings (it is off by default). The workout, route and heart rate are then saved. The iPhone app does not write to Health. There is no such link on Android.</p>
+<p>Only the Apple Watch app can write to Apple Health: it starts the run as a workout and saves the workout, route and heart rate. This is on by default; Apple asks for your permission the first time, and you can switch it off at any time in the watch app settings ("Save to Health"). The data stays in Apple Health on your own devices; VirtuO has no server and sees none of it. The iPhone app does not write to Health. There is no such link on Android.</p>
 
 <h2>Livelox</h2>
 <p>Signing in to Livelox is optional. You sign in on Livelox's own page (OAuth), and VirtuO never sees your password. The sign-in token is kept in the device keychain (iPhone) or secure storage (Android Keystore). Only public course data is downloaded. Livelox has its own privacy policy.</p>

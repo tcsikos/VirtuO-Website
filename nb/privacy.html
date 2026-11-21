@@ -173,11 +173,11 @@
 
 <h2>Posisjon</h2>
 <ul><li>Appen bruker GPS bare mens et løp er aktivt, for å registrere når du når en post. Dette fungerer også med låst skjerm og telefonen i lomma, og derfor ber den om posisjonstillatelse «også i bakgrunnen».</li>
-<li>VirtuO sender aldri posisjonen din noe sted; etter et løp lagrer den bare mellomtidene, ikke ruten din. Unntak: hvis du slår på lagring i Helse i Apple Watch-appen, lagres ruten der (se nedenfor).</li>
+<li>VirtuO sender ikke posisjonen din noe sted; etter et løp lagrer den bare strekktidene, ikke ruten din. Unntak: klokke-appen lagrer løpet som trening i Helse som standard (kan slås av i innstillingene i klokke-appen), og da lagres ruten der (se under).</li>
 <li>Livelox-søket kan bruke den omtrentlige posisjonen din én gang for å foreslå landet ditt. Telefonens operativsystem (Apple, eller Android/Google) gjør den om til en landkode, og det kan involvere leverandørens egen tjeneste; VirtuO sender den ikke til en egen server, fordi vi ikke har en. Hvis du ikke gir tillatelse, brukes i stedet regioninnstillingen på telefonen.</li></ul>
 
 <h2>Apple Health</h2>
-<p>Bare Apple Watch-appen kan skrive til Helse, og bare hvis du slår på bryteren «Lagre i Helse» i innstillingene (den er av som standard). Da lagres treningen, ruten og pulsen. iPhone-appen skriver ikke til Helse. Det finnes ingen slik kobling på Android.</p>
+<p>Bare klokke-appen kan skrive til Helse: den starter løpet som en treningsøkt og lagrer økten, ruten og pulsen. Dette er på som standard; Apple ber om tillatelse første gang, og du kan slå det av når som helst i innstillingene i klokke-appen («Lagre i Helse»). Dataene blir i Helse, på dine egne enheter; VirtuO har ingen server og ser ingenting av dem. iPhone-appen skriver ikke til Helse. Det finnes ingen slik kobling på Android.</p>
 
 <h2>Livelox</h2>
 <p>Innlogging på Livelox er valgfritt. Du logger inn på Livelox sin egen side (OAuth), og VirtuO ser aldri passordet ditt. Innloggingstokenet lagres i enhetens nøkkelring (iPhone) eller i sikker lagring (Android Keystore). Det er bare offentlige løypedata som lastes ned. Livelox har sin egen personvernerklæring.</p>

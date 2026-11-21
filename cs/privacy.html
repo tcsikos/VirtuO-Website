@@ -173,11 +173,11 @@
 
 <h2>Poloha</h2>
 <ul><li>Aplikace používá GPS jen tehdy, když je běh aktivní, aby poznala, kdy dojdeš ke kontrole. Funguje to i při zamčené obrazovce a telefonu v kapse, proto žádá o oprávnění k poloze „i na pozadí“.</li>
-<li>VirtuO nikam neposílá tvou polohu; po běhu si ponechá jen mezičasy, ne tvou trasu. Výjimka: pokud v aplikaci pro Apple Watch zapneš ukládání do Zdraví, trasa se tam uloží (viz níže).</li>
+<li>VirtuO tvou polohu nikam neodesílá; po běhu ukládá jen mezičasy, ne tvou trasu. Výjimka: aplikace hodinek ukládá běh ve výchozím stavu jako trénink do aplikace Zdraví (v nastavení aplikace hodinek to můžeš vypnout) a pak se tam ukládá i trasa (viz níže).</li>
 <li>Vyhledávání závodů v Livelox může jednou použít přibližnou polohu, aby navrhlo tvou zemi. Operační systém telefonu (Apple, nebo Android/Google) ji převede na kód země, což může zahrnovat službu daného poskytovatele; VirtuO ji neposílá na vlastní server, protože žádný nemá. Pokud oprávnění nedáš, použije se místo toho nastavení regionu v telefonu.</li></ul>
 
 <h2>Apple Health</h2>
-<p>Zapisovat do aplikace Zdraví může jen aplikace na Apple Watch, a to jen tehdy, když v nastavení zapneš přepínač „Uložit do Zdraví“ (ve výchozím nastavení je vypnutý). Pak se uloží trénink, trasa a tep. Aplikace na iPhonu do Zdraví nezapisuje. Na Androidu takové propojení neexistuje.</p>
+<p>Do aplikace Zdraví může zapisovat jen aplikace hodinek: spouští běh jako trénink a ukládá trénink, trasu a tep. Je to ve výchozím stavu zapnuté; Apple při prvním použití žádá o povolení a vypnout to můžeš kdykoli v nastavení aplikace hodinek („Uložit do Zdraví“). Data zůstávají v aplikaci Zdraví na tvých vlastních zařízeních; VirtuO nemá server a nic z nich nevidí. Aplikace pro iPhone do Zdraví nezapisuje. Na Androidu takové propojení neexistuje.</p>
 
 <h2>Livelox</h2>
 <p>Přihlášení k Livelox je volitelné. Přihlašuješ se na vlastní stránce Livelox (OAuth) a VirtuO tvoje heslo nikdy nevidí. Přihlašovací token se ukládá do klíčenky zařízení (iPhone), resp. do zabezpečeného úložiště (Android Keystore). Stahují se jen veřejná data tratí. Livelox má vlastní zásady ochrany osobních údajů.</p>

@@ -173,11 +173,11 @@
 
 <h2>Standort</h2>
 <ul><li>Die App nutzt GPS nur, während ein Lauf aktiv ist, um zu erkennen, wann du einen Posten erreichst. Das funktioniert auch mit gesperrtem Bildschirm und Handy in der Tasche; deshalb fragt die App nach der Standortberechtigung „auch im Hintergrund“.</li>
-<li>Deinen Standort sendet VirtuO nirgendwohin; nach einem Lauf speichert es nur die Zwischenzeiten, nicht deine Route. Ausnahme: Wenn du in der Apple-Watch-App das Speichern in der Health-App einschaltest, wird die Route dort gespeichert (siehe unten).</li>
+<li>Deinen Standort sendet VirtuO nirgendwohin; nach einem Lauf speichert es nur die Zwischenzeiten, nicht deine Route. Ausnahme: Die Apple-Watch-App speichert den Lauf standardmäßig als Training in der Health-App (in den Einstellungen der Uhren-App lässt sich das ausschalten). Dann wird die Route dort gespeichert (siehe unten).</li>
 <li>Die Livelox-Suche darf deinen ungefähren Standort einmal abfragen, um dein Land vorzuschlagen. Das Betriebssystem deines Geräts (Apple bzw. Android/Google) wandelt ihn in einen Ländercode um, dabei kann der Dienst des jeweiligen Anbieters beteiligt sein. VirtuO sendet ihn nicht an einen eigenen Server, weil es keinen gibt. Wenn du keine Erlaubnis gibst, wird stattdessen die Regionseinstellung deines Geräts verwendet.</li></ul>
 
 <h2>Apple Health</h2>
-<p>Nur die Uhren-App kann in die Health-App schreiben, und nur wenn du in den Einstellungen den Schalter „In Health sichern“ einschaltest (standardmäßig ist er aus). Dann werden Training, Route und Puls gespeichert. Die iPhone-App schreibt nicht in die Health-App. Auf Android gibt es so eine Verbindung nicht.</p>
+<p>Nur die Uhren-App kann in die Health-App schreiben: Sie startet den Lauf als Training und speichert Training, Route und Puls. Das ist standardmäßig eingeschaltet; Apple fragt beim ersten Mal nach deiner Erlaubnis, und in den Einstellungen der Uhren-App („In Health sichern“) kannst du es jederzeit ausschalten. Die Daten bleiben in der Health-App auf deinen eigenen Geräten; VirtuO hat keinen Server und sieht davon nichts. Die iPhone-App schreibt nicht in die Health-App. Auf Android gibt es so eine Verbindung nicht.</p>
 
 <h2>Livelox</h2>
 <p>Die Anmeldung bei Livelox ist optional. Du meldest dich auf der eigenen Seite von Livelox an (OAuth), und VirtuO sieht dein Passwort nie. Das erhaltene Anmelde-Token wird im Schlüsselbund des Geräts (iPhone) bzw. im sicheren Speicher (Android Keystore) abgelegt. Es werden nur öffentliche Bahndaten heruntergeladen. Livelox hat eine eigene Datenschutzerklärung.</p>

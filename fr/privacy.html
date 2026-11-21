@@ -173,11 +173,11 @@
 
 <h2>Localisation</h2>
 <ul><li>L'appli n'utilise le GPS que pendant une course active, pour détecter quand tu atteins un poste. Cela fonctionne aussi écran verrouillé et téléphone dans la poche, c'est pourquoi elle demande l'autorisation de localisation « en arrière-plan ».</li>
-<li>VirtuO n'envoie ta position nulle part ; après une course, il ne garde que les temps intermédiaires, pas ton itinéraire. Exception : si tu actives l'enregistrement dans Santé dans l'appli Apple Watch, le tracé y est enregistré (voir plus bas).</li>
+<li>VirtuO n'envoie ta position nulle part ; après une course, il ne garde que les temps intermédiaires, pas ton tracé. Exception : l'app de la montre enregistre la course comme entraînement dans Santé par défaut (tu peux le désactiver dans les réglages de l'app de la montre), et le tracé y est alors enregistré (voir ci-dessous).</li>
 <li>La recherche de compétitions Livelox peut utiliser une fois ta position approximative pour suggérer ton pays. Le système d'exploitation de ton téléphone (Apple, ou Android/Google) la convertit en code pays, ce qui peut impliquer le service de ce fournisseur ; VirtuO ne l'envoie pas à un serveur à lui, car il n'en a pas. Si tu n'accordes pas l'autorisation, le réglage de région de ton téléphone est utilisé à la place.</li></ul>
 
 <h2>Apple Health</h2>
-<p>Seule l'appli Apple Watch peut écrire dans l'appli Santé, et seulement si tu actives l'interrupteur « Enregistrer dans Santé » dans les réglages (il est désactivé par défaut). L'entraînement, le tracé et la fréquence cardiaque sont alors enregistrés. L'appli iPhone n'écrit pas dans Santé. Il n'existe pas de lien de ce type sur Android.</p>
+<p>Seule l'app de la montre peut écrire dans Santé : elle démarre la course comme un entraînement et enregistre l'entraînement, le tracé et la fréquence cardiaque. C'est activé par défaut ; Apple demande ton autorisation la première fois, et tu peux le désactiver à tout moment dans les réglages de l'app de la montre (« Enregistrer dans Santé »). Les données restent dans Santé, sur tes propres appareils ; VirtuO n'a pas de serveur et n'en voit rien. L'app iPhone n'écrit pas dans Santé. Il n'existe pas de lien de ce type sur Android.</p>
 
 <h2>Livelox</h2>
 <p>La connexion à Livelox est facultative. Tu te connectes sur la page de Livelox (OAuth), et VirtuO ne voit jamais ton mot de passe. Le jeton de connexion reçu est conservé dans le trousseau de l'appareil (iPhone) ou dans le stockage sécurisé (Android Keystore). Seules les données publiques des parcours sont téléchargées. Livelox a sa propre politique de confidentialité.</p>

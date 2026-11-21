@@ -173,11 +173,11 @@
 
 <h2>Sijainti</h2>
 <ul><li>Sovellus käyttää GPS:ää vain silloin, kun suoritus on käynnissä, jotta se tunnistaa, milloin saavutat rastin. Tämä toimii myös lukitulla näytöllä ja puhelin taskussa, siksi sovellus pyytää sijaintilupaa „myös taustalla“.</li>
-<li>VirtuO ei lähetä sijaintiasi minnekään; suorituksen jälkeen se tallentaa vain väliajat, ei reittiäsi. Poikkeus: jos otat Apple Watch -sovelluksessa käyttöön tallennuksen Terveys-sovellukseen, reitti tallentuu sinne (katso alla).</li>
+<li>VirtuO ei lähetä sijaintiasi mihinkään; suorituksen jälkeen se tallentaa vain välianajat, ei reittiäsi. Poikkeus: kellosovellus tallentaa suorituksen treeninä Terveys-appiin oletuksena (voit kytkeä tämän pois kellosovelluksen asetuksista), ja silloin reitti tallentuu sinne (katso alla).</li>
 <li>Livelox-tapahtumahaku voi käyttää likimääräistä sijaintiasi kerran ehdottaakseen maatasi. Puhelimen käyttöjärjestelmä (Apple tai Android/Google) muuntaa sen maakoodiksi, ja siihen voi liittyä kyseisen palveluntarjoajan oma palvelu; VirtuO ei lähetä sitä omalle palvelimelleen, koska sellaista ei ole. Jos et anna lupaa, käytetään puhelimen aluemääritystä.</li></ul>
 
 <h2>Apple Health</h2>
-<p>Vain Apple Watch -sovellus voi kirjoittaa Terveys-sovellukseen, ja vain jos otat asetuksissa käyttöön kytkimen „Tallenna Terveys-appiin“ (oletuksena pois päältä). Silloin harjoitus, reitti ja syke tallennetaan. iPhone-sovellus ei kirjoita Terveys-sovellukseen. Androidilla tällaista yhteyttä ei ole.</p>
+<p>Vain kellosovellus voi kirjoittaa Terveys-appiin: se käynnistää suorituksen treeninä ja tallentaa treenin, reitin ja sykkeen. Tämä on oletuksena päällä; Apple kysyy luvan ensimmäisellä kerralla, ja sen voi kytkeä pois milloin tahansa kellosovelluksen asetuksista (”Tallenna Terveys-appiin”). Tiedot pysyvät Terveys-appissa omilla laitteillasi; VirtuOlla ei ole palvelinta, eikä se näe niistä mitään. iPhone-sovellus ei kirjoita Terveys-appiin. Androidilla tällaista yhteyttä ei ole.</p>
 
 <h2>Livelox</h2>
 <p>Kirjautuminen Liveloxiin on valinnainen. Kirjaudut sisään Liveloxin omalla sivulla (OAuth), eikä VirtuO koskaan näe salasanaasi. Saatu kirjautumistunnus säilytetään laitteen avainnipussa (iPhone) tai suojatussa tallennustilassa (Android Keystore). Vain julkiset ratatiedot ladataan. Livelox-palvelulla on oma tietosuojaseloste.</p>

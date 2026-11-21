@@ -173,11 +173,11 @@
 
 <h2>Lokalizacja</h2>
 <ul><li>Aplikacja używa GPS tylko wtedy, gdy bieg jest aktywny, aby wykryć, kiedy dotrzesz do punktu. Działa to także przy zablokowanym ekranie i telefonie w kieszeni, dlatego prosi o zgodę na lokalizację „w tle”.</li>
-<li>VirtuO nigdzie nie wysyła Twojej lokalizacji; po biegu zapisuje tylko międzyczasy, a nie Twoją trasę. Wyjątek: jeśli w aplikacji na Apple Watch włączysz zapis w Zdrowiu, trasa jest tam zapisywana (patrz niżej).</li>
+<li>VirtuO nigdzie nie wysyła twojej lokalizacji; po biegu zapisuje tylko międzyczasy, nie twoją trasę. Wyjątek: aplikacja zegarka domyślnie zapisuje bieg jako trening w Zdrowiu (można to wyłączyć w ustawieniach aplikacji zegarka), a wtedy trasa zapisuje się tam (patrz niżej).</li>
 <li>Wyszukiwanie zawodów w Livelox może jednorazowo skorzystać z przybliżonej lokalizacji, by zaproponować Twój kraj. System operacyjny telefonu (Apple lub Android/Google) zamienia ją na kod kraju, co może wiązać się z usługą tego dostawcy; VirtuO nie wysyła jej na własny serwer, bo go nie ma. Jeśli nie udzielisz zgody, zamiast tego używane jest ustawienie regionu w telefonie.</li></ul>
 
 <h2>Apple Health</h2>
-<p>Tylko aplikacja na Apple Watch może zapisywać dane w Zdrowiu, i to wyłącznie wtedy, gdy w ustawieniach włączysz przełącznik „Zapisz w Zdrowiu” (domyślnie jest wyłączony). Wtedy zapisywane są trening, trasa i tętno. Aplikacja na iPhone'a nie zapisuje niczego w Zdrowiu. Na Androidzie takie połączenie nie istnieje.</p>
+<p>Tylko aplikacja zegarka może zapisywać w Zdrowiu: uruchamia bieg jako trening i zapisuje trening, trasę oraz tętno. Jest to domyślnie włączone; Apple pyta o zgodę za pierwszym razem, a wyłączyć to można w dowolnym momencie w ustawieniach aplikacji zegarka („Zapisz w Zdrowiu”). Dane zostają w Zdrowiu, na twoich urządzeniach; VirtuO nie ma serwera i nic z tego nie widzi. Aplikacja iPhone nie zapisuje w Zdrowiu. Na Androidzie takiego połączenia nie ma.</p>
 
 <h2>Livelox</h2>
 <p>Logowanie do Livelox jest opcjonalne. Logujesz się na stronie Livelox (OAuth), a VirtuO nigdy nie widzi Twojego hasła. Token logowania jest przechowywany w pęku kluczy urządzenia (iPhone) lub w bezpiecznym magazynie (Android Keystore). Pobierane są wyłącznie publiczne dane tras. Livelox ma własną politykę prywatności.</p>
